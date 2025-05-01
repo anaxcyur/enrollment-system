@@ -3,7 +3,7 @@
  */
 
 package com.mycompany.finals_enrollment;
-
+import javax.swing.Timer;
 import java.util.ArrayList;
 
 /**
@@ -23,6 +23,18 @@ public class Finals_enrollment {
     // registrar/accountant
     public static ArrayList<String> username2 = new ArrayList<String>();
     public static ArrayList<String> password2 = new ArrayList<String>();
+    
+    
+    //ATTEMPTS
+    public static int adminAttempts = 3;
+    public static Timer adminTimer;
+    public static int studentAttempts = 3;
+    public static Timer studentTimer;
+    public static int registrarAttempts = 3;
+    public static Timer registrarTimer;
+    public static int professorAttempts = 3;
+    public static Timer professorTimer;
+   
     
      
   

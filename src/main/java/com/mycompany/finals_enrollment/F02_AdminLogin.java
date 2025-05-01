@@ -4,7 +4,10 @@
  */
 package com.mycompany.finals_enrollment;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 /**
  *
@@ -15,6 +18,8 @@ public class F02_AdminLogin extends javax.swing.JFrame {
     /**
      * Creates new form F2_AdminLogin
      */
+    
+
     public F02_AdminLogin() {
         initComponents();
         setLocationRelativeTo(null);
@@ -139,44 +144,100 @@ public class F02_AdminLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_admin_backoginActionPerformed
 
     private void admin_enterloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admin_enterloginActionPerformed
-        String uname1 = admin_username.getText();
-        String pass1 = admin_password.getText();
-        
-        int a = Finals_enrollment.username.size();
-        int i;
-        
-        if(Finals_enrollment.username.indexOf(uname1)>=0){
-            for (i=0; i<a;)
-            {
-            if (!uname1.equals(Finals_enrollment.username.get(i))){
-            i++;
-            }
-            else{
-                if(!pass1.equals(Finals_enrollment.password.get(i))){
-                JOptionPane.showMessageDialog(null, "Incorect password for" + uname1);
-                admin_password.setText("");
-                break;
+       String uname1 = admin_username.getText();
+String pass1 = admin_password.getText();
+
+int a = Finals_enrollment.username.size();
+int i;
+
+if (uname1.isEmpty() || pass1.isEmpty()) {
+    JOptionPane.showMessageDialog(null, "Please enter username and password.");
+    return; 
+}
+
+if (Finals_enrollment.adminAttempts == 0) {
+    JOptionPane.showMessageDialog(null, "Too many failed attempts. Access locked.");
+    admin_enterlogin.setEnabled(false); 
+    admin_username.setEnabled(false); 
+    admin_password.setEnabled(false); 
+
+    Finals_enrollment.adminTimer = new Timer(10000, new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Finals_enrollment.adminAttempts = 3;
+            admin_enterlogin.setEnabled(true); 
+            admin_username.setEnabled(true); 
+            admin_password.setEnabled(true); 
+            admin_username.setText("");
+            admin_password.setText("");
+            JOptionPane.showMessageDialog(null, "You can try logging in again.");
+            Finals_enrollment.adminTimer.stop();
+        }
+    });
+
+            Finals_enrollment.adminTimer.setRepeats(false);
+            Finals_enrollment.adminTimer.start();
+            return;
+        }
+
+        if (Finals_enrollment.username.contains(uname1)) {
+            for (i = 0; i < a; i++) {
+                if (uname1.equals(Finals_enrollment.username.get(i))) {
+                    if (pass1.length() <= 2) {
+                        JOptionPane.showMessageDialog(null, "Password too short.");
+                        admin_password.setText("");
+                        Finals_enrollment.adminAttempts--;
+                    } else if (pass1.length() > 500) {
+                        JOptionPane.showMessageDialog(null, "Password too long.");
+                        admin_password.setText("");
+                        Finals_enrollment.adminAttempts--;
+                    } else if (!pass1.equals(Finals_enrollment.password.get(i))) {
+                        Finals_enrollment.adminAttempts--;
+                        JOptionPane.showMessageDialog(null, "Incorrect password for " + uname1 + ". Attempts left: " + Finals_enrollment.adminAttempts);
+                        admin_password.setText("");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "LOGIN SUCCESSFUL!");
+                        new F14_AdminPortal().setVisible(true);
+                        this.setVisible(false);
+                    }
+                    return;
                 }
-                else{
-                JOptionPane.showMessageDialog(null, "LOGIN SUCCESSFUL!");
-                new F14_AdminPortal().setVisible(true);
-                this.setVisible(false);
-                break;
-                        }
             }
-            }
-           
-            
+        } else if (uname1.equals("admin") && pass1.equals("12345")) {
+            JOptionPane.showMessageDialog(null, "LOGIN SUCCESSFUL!");
+            new F14_AdminPortal().setVisible(true);
+            this.setVisible(false);
+        } else {
+            Finals_enrollment.adminAttempts--;
+            JOptionPane.showMessageDialog(null, "Username doesn't exist or incorrect. Attempts left: " + Finals_enrollment.adminAttempts);
+            admin_username.setText("");
+            admin_password.setText("");
         }
-        else if (uname1.equals("admin") && pass1.equals("12345")) {
-                    JOptionPane.showMessageDialog(null, "LOGIN SUCCESSFUL!");
-                    new F14_AdminPortal().setVisible(true);
-                    this.setVisible(false);   
+
+        if (Finals_enrollment.adminAttempts <= 0) {
+            JOptionPane.showMessageDialog(null, "Too many failed attempts. Access locked.");
+            admin_enterlogin.setEnabled(false); 
+            admin_username.setEnabled(false); 
+            admin_password.setEnabled(false); 
+
+            Finals_enrollment.adminTimer = new Timer(10000, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Finals_enrollment.adminAttempts = 3;
+                    admin_enterlogin.setEnabled(true); 
+                    admin_username.setEnabled(true); 
+                    admin_password.setEnabled(true); 
+                    admin_username.setText("");
+                    admin_password.setText("");
+                    JOptionPane.showMessageDialog(null, "You can try logging in again.");
+                    Finals_enrollment.adminTimer.stop();
+                }
+            });
+
+            Finals_enrollment.adminTimer.setRepeats(false);
+            Finals_enrollment.adminTimer.start();
         }
-        else{
-        JOptionPane.showMessageDialog(null, "Username doesn't exist!");
-        admin_username.setText("");
-        }
+
     }//GEN-LAST:event_admin_enterloginActionPerformed
 
     private void admin_unhideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admin_unhideActionPerformed
