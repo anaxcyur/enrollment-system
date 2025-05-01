@@ -25,7 +25,7 @@ public class Finals_enrollment {
     public static ArrayList<String> password2 = new ArrayList<String>();
     
     
-    //ATTEMPTS
+    //ATTEMPTS & TIMER
     public static int adminAttempts = 3;
     public static Timer adminTimer;
     public static int studentAttempts = 3;
