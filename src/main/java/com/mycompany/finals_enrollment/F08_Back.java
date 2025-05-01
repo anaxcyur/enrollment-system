@@ -105,8 +105,10 @@ public class F08_Back extends javax.swing.JFrame {
                 new F07_StaffRegister().setVisible(true);
                 this.setVisible(false);
         }else if (Finals_enrollment.previousFrame.equals("Login")) {
+                Finals_enrollment.previousFrame = "StudentLogin";
                 new F09_LoginSS().setVisible(true);
                 this.setVisible(false);
+                
         }else if (Finals_enrollment.previousFrame.equals("AdminBack")) {
                 new F03_AdminRegister().setVisible(true);
                 this.setVisible(false);

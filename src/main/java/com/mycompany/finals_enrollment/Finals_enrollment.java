@@ -34,6 +34,8 @@ public class Finals_enrollment {
     public static Timer registrarTimer;
     public static int professorAttempts = 3;
     public static Timer professorTimer;
+    
+   
    
     
      

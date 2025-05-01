@@ -390,7 +390,7 @@ switch (Finals_enrollment.previousFrame) {
     }//GEN-LAST:event_login_clearActionPerformed
 
     private void login_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_backActionPerformed
-        Finals_enrollment.previousFrame= ("Login");
+        Finals_enrollment.previousFrame= ("Login"); 
         new F08_Back().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_login_backActionPerformed
