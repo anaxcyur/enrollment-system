@@ -108,11 +108,20 @@ public class F08_Back extends javax.swing.JFrame {
                 Finals_enrollment.previousFrame = "StudentLogin";
                 new F09_LoginSS().setVisible(true);
                 this.setVisible(false);
-                
+        }else if (Finals_enrollment.previousFrame.equals("ProfessorLogin")) {
+                Finals_enrollment.previousFrame = "ProfessorLogin"; 
+                F09_LoginSS loginFrame = new F09_LoginSS();
+                loginFrame.setVisible(true);
+                this.setVisible(false);
+        } else if (Finals_enrollment.previousFrame.equals("RegistrarLogin")) {
+                Finals_enrollment.previousFrame = "RegistrarLogin";  
+                F09_LoginSS loginFrame = new F09_LoginSS();
+                loginFrame.setVisible(true);
+                this.setVisible(false);
         }else if (Finals_enrollment.previousFrame.equals("AdminBack")) {
                 new F03_AdminRegister().setVisible(true);
                 this.setVisible(false);
-        }      
+        }
     }//GEN-LAST:event_backnoActionPerformed
 
     /**
