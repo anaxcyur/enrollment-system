@@ -30,6 +30,7 @@ public class F10_StudentPortal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         sp_exit = new javax.swing.JButton();
+        student_profile = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -47,6 +48,11 @@ public class F10_StudentPortal extends javax.swing.JFrame {
         });
         jPanel1.add(sp_exit);
         sp_exit.setBounds(780, 490, 60, 30);
+
+        student_profile.setBorderPainted(false);
+        student_profile.setContentAreaFilled(false);
+        jPanel1.add(student_profile);
+        student_profile.setBounds(90, 160, 220, 130);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/studentportal.png"))); // NOI18N
         jPanel1.add(jLabel1);
@@ -103,5 +109,6 @@ public class F10_StudentPortal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton sp_exit;
+    private javax.swing.JButton student_profile;
     // End of variables declaration//GEN-END:variables
 }
