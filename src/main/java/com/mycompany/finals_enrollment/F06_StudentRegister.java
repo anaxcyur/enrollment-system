@@ -1,5 +1,6 @@
 package com.mycompany.finals_enrollment;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /*
@@ -19,6 +20,10 @@ public class F06_StudentRegister extends javax.swing.JFrame {
     public F06_StudentRegister() {
         initComponents();
         setLocationRelativeTo(null);
+        sr_name.setBackground(new Color(0, 0, 0, 0));
+        sr_username.setBackground(new Color(0, 0, 0, 0));
+        sr_password.setBackground(new Color(0, 0, 0, 0));
+        sr_conpass.setBackground(new Color(0, 0, 0, 0));
     }
 
     /**
@@ -43,7 +48,8 @@ public class F06_StudentRegister extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(920, 580));
+        setMinimumSize(new java.awt.Dimension(900, 550));
+        setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);
@@ -53,14 +59,14 @@ public class F06_StudentRegister extends javax.swing.JFrame {
         sr_username.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         sr_username.setBorder(null);
         jPanel1.add(sr_username);
-        sr_username.setBounds(400, 260, 160, 30);
+        sr_username.setBounds(400, 270, 170, 30);
 
         sr_name.setBackground(new java.awt.Color(255, 255, 255));
         sr_name.setForeground(new java.awt.Color(0, 0, 0));
         sr_name.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         sr_name.setBorder(null);
         jPanel1.add(sr_name);
-        sr_name.setBounds(400, 210, 160, 30);
+        sr_name.setBounds(370, 230, 200, 30);
 
         sr_conpass.setBackground(new java.awt.Color(255, 255, 255));
         sr_conpass.setForeground(new java.awt.Color(0, 0, 0));
@@ -68,7 +74,7 @@ public class F06_StudentRegister extends javax.swing.JFrame {
         sr_conpass.setToolTipText("");
         sr_conpass.setBorder(null);
         jPanel1.add(sr_conpass);
-        sr_conpass.setBounds(400, 360, 160, 30);
+        sr_conpass.setBounds(460, 350, 110, 30);
 
         sr_password.setBackground(new java.awt.Color(255, 255, 255));
         sr_password.setForeground(new java.awt.Color(0, 0, 0));
@@ -76,7 +82,7 @@ public class F06_StudentRegister extends javax.swing.JFrame {
         sr_password.setToolTipText("");
         sr_password.setBorder(null);
         jPanel1.add(sr_password);
-        sr_password.setBounds(400, 310, 160, 30);
+        sr_password.setBounds(390, 310, 180, 30);
 
         sr_clear.setBorderPainted(false);
         sr_clear.setContentAreaFilled(false);
@@ -86,7 +92,7 @@ public class F06_StudentRegister extends javax.swing.JFrame {
             }
         });
         jPanel1.add(sr_clear);
-        sr_clear.setBounds(420, 420, 60, 40);
+        sr_clear.setBounds(370, 420, 70, 30);
 
         sr_back.setBorderPainted(false);
         sr_back.setContentAreaFilled(false);
@@ -96,7 +102,7 @@ public class F06_StudentRegister extends javax.swing.JFrame {
             }
         });
         jPanel1.add(sr_back);
-        sr_back.setBounds(520, 420, 70, 40);
+        sr_back.setBounds(580, 500, 70, 30);
 
         sr_save.setBorderPainted(false);
         sr_save.setContentAreaFilled(false);
@@ -106,7 +112,7 @@ public class F06_StudentRegister extends javax.swing.JFrame {
             }
         });
         jPanel1.add(sr_save);
-        sr_save.setBounds(300, 420, 70, 40);
+        sr_save.setBounds(460, 420, 70, 30);
 
         sr_unhide.setBorderPainted(false);
         sr_unhide.setContentAreaFilled(false);
@@ -116,7 +122,7 @@ public class F06_StudentRegister extends javax.swing.JFrame {
             }
         });
         jPanel1.add(sr_unhide);
-        sr_unhide.setBounds(570, 320, 30, 20);
+        sr_unhide.setBounds(590, 310, 30, 20);
 
         sr_unhide1.setBorderPainted(false);
         sr_unhide1.setContentAreaFilled(false);
@@ -126,9 +132,9 @@ public class F06_StudentRegister extends javax.swing.JFrame {
             }
         });
         jPanel1.add(sr_unhide1);
-        sr_unhide1.setBounds(570, 370, 30, 20);
+        sr_unhide1.setBounds(590, 360, 30, 20);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registerstudent.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/studreg.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 900, 550);
 
@@ -155,8 +161,8 @@ public class F06_StudentRegister extends javax.swing.JFrame {
        
       
         }else if (!password.equals(confirmpass)){
-            Finals_enrollment.username.add(sr_username.getText());
-            Finals_enrollment.password.add(sr_password.getText());
+            Finals_enrollment.username1.add(sr_username.getText());
+            Finals_enrollment.password1.add(sr_password.getText());
             JOptionPane.showMessageDialog(null, "Please confirm the password again");
             
             sr_conpass.setText("");

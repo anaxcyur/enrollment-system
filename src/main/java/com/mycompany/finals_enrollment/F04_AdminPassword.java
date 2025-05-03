@@ -38,7 +38,8 @@ public class F04_AdminPassword extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(920, 580));
+        setMinimumSize(new java.awt.Dimension(900, 550));
+        setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);
@@ -48,7 +49,7 @@ public class F04_AdminPassword extends javax.swing.JFrame {
         adminpass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         adminpass.setBorder(null);
         jPanel1.add(adminpass);
-        adminpass.setBounds(380, 270, 140, 20);
+        adminpass.setBounds(310, 260, 290, 30);
 
         ap_unhide.setText("jButton1");
         ap_unhide.setBorderPainted(false);
@@ -59,7 +60,7 @@ public class F04_AdminPassword extends javax.swing.JFrame {
             }
         });
         jPanel1.add(ap_unhide);
-        ap_unhide.setBounds(540, 270, 20, 23);
+        ap_unhide.setBounds(610, 260, 30, 30);
 
         ap_clear.setBorderPainted(false);
         ap_clear.setContentAreaFilled(false);
@@ -69,7 +70,7 @@ public class F04_AdminPassword extends javax.swing.JFrame {
             }
         });
         jPanel1.add(ap_clear);
-        ap_clear.setBounds(420, 320, 60, 30);
+        ap_clear.setBounds(410, 330, 90, 40);
 
         ap_back.setBorderPainted(false);
         ap_back.setContentAreaFilled(false);
@@ -79,7 +80,7 @@ public class F04_AdminPassword extends javax.swing.JFrame {
             }
         });
         jPanel1.add(ap_back);
-        ap_back.setBounds(500, 320, 60, 30);
+        ap_back.setBounds(310, 330, 80, 40);
 
         ap_enter.setBorderPainted(false);
         ap_enter.setContentAreaFilled(false);
@@ -94,7 +95,7 @@ public class F04_AdminPassword extends javax.swing.JFrame {
             }
         });
         jPanel1.add(ap_enter);
-        ap_enter.setBounds(350, 320, 60, 30);
+        ap_enter.setBounds(520, 330, 80, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminpass.png"))); // NOI18N
         jPanel1.add(jLabel1);
@@ -189,6 +190,7 @@ public class F04_AdminPassword extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

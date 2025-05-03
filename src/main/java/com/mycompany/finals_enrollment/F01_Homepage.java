@@ -28,7 +28,6 @@ public class F01_Homepage extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        homepage_reg = new javax.swing.JButton();
         homepage_admin = new javax.swing.JButton();
         homepage_student = new javax.swing.JButton();
         homepage_exit = new javax.swing.JButton();
@@ -36,20 +35,11 @@ public class F01_Homepage extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(920, 580));
+        setMinimumSize(new java.awt.Dimension(900, 550));
+        setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);
-
-        homepage_reg.setBorderPainted(false);
-        homepage_reg.setContentAreaFilled(false);
-        homepage_reg.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                homepage_regActionPerformed(evt);
-            }
-        });
-        jPanel1.add(homepage_reg);
-        homepage_reg.setBounds(610, 200, 200, 140);
 
         homepage_admin.setBorderPainted(false);
         homepage_admin.setContentAreaFilled(false);
@@ -59,7 +49,7 @@ public class F01_Homepage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(homepage_admin);
-        homepage_admin.setBounds(340, 370, 210, 140);
+        homepage_admin.setBounds(310, 460, 290, 30);
 
         homepage_student.setBorderPainted(false);
         homepage_student.setContentAreaFilled(false);
@@ -69,7 +59,7 @@ public class F01_Homepage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(homepage_student);
-        homepage_student.setBounds(80, 200, 210, 140);
+        homepage_student.setBounds(310, 360, 290, 30);
 
         homepage_exit.setToolTipText("");
         homepage_exit.setBorderPainted(false);
@@ -90,9 +80,9 @@ public class F01_Homepage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(homepage_prof);
-        homepage_prof.setBounds(350, 200, 200, 140);
+        homepage_prof.setBounds(310, 410, 290, 30);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homepagee.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/loginpage.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 900, 550);
 
@@ -118,12 +108,6 @@ public class F01_Homepage extends javax.swing.JFrame {
        new F09_LoginSS().setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_homepage_studentActionPerformed
-
-    private void homepage_regActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homepage_regActionPerformed
-        Finals_enrollment.previousFrame= ("RegistrarLogin");
-       new F09_LoginSS().setVisible(true);
-       this.setVisible(false);
-    }//GEN-LAST:event_homepage_regActionPerformed
 
     private void homepage_profActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homepage_profActionPerformed
         Finals_enrollment.previousFrame= ("ProfessorLogin");
@@ -171,7 +155,6 @@ public class F01_Homepage extends javax.swing.JFrame {
     private javax.swing.JButton homepage_admin;
     private javax.swing.JButton homepage_exit;
     private javax.swing.JButton homepage_prof;
-    private javax.swing.JButton homepage_reg;
     private javax.swing.JButton homepage_student;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

@@ -32,7 +32,8 @@ public class F00_StartUp extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(920, 580));
+        setMinimumSize(new java.awt.Dimension(900, 550));
+        setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);
@@ -45,7 +46,7 @@ public class F00_StartUp extends javax.swing.JFrame {
             }
         });
         jPanel1.add(startupbutton);
-        startupbutton.setBounds(550, 363, 150, 110);
+        startupbutton.setBounds(540, 40, 70, 20);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/startup.png"))); // NOI18N
         jPanel1.add(jLabel1);

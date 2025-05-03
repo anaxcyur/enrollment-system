@@ -31,10 +31,11 @@ public class F08_Back extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         backno = new javax.swing.JButton();
         backyes = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(920, 580));
+        setMinimumSize(new java.awt.Dimension(900, 550));
+        setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);
@@ -47,7 +48,7 @@ public class F08_Back extends javax.swing.JFrame {
             }
         });
         jPanel1.add(backno);
-        backno.setBounds(500, 390, 70, 40);
+        backno.setBounds(480, 330, 60, 30);
 
         backyes.setBorderPainted(false);
         backyes.setContentAreaFilled(false);
@@ -57,11 +58,11 @@ public class F08_Back extends javax.swing.JFrame {
             }
         });
         jPanel1.add(backyes);
-        backyes.setBounds(330, 390, 70, 40);
+        backyes.setBounds(370, 330, 60, 30);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png"))); // NOI18N
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 900, 550);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/beck.png"))); // NOI18N
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(0, 0, 900, 550);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 900, 550);
@@ -79,7 +80,7 @@ public class F08_Back extends javax.swing.JFrame {
         }else if (Finals_enrollment.previousFrame.equals("StudentRegister")) {
                 new F01_Homepage().setVisible(true);
                 this.setVisible(false);
-        }else if (Finals_enrollment.previousFrame.equals("StaffRegister")) {
+        }else if (Finals_enrollment.previousFrame.equals("ProfessorRegister")) {
                 new F01_Homepage().setVisible(true);
                 this.setVisible(false);
         }else if (Finals_enrollment.previousFrame.equals("Login")) {
@@ -101,20 +102,12 @@ public class F08_Back extends javax.swing.JFrame {
         }else if (Finals_enrollment.previousFrame.equals("StudentRegister")) {
                 new F06_StudentRegister().setVisible(true);
                 this.setVisible(false);
-        }  else if (Finals_enrollment.previousFrame.equals("StaffRegister")) {
-                new F07_StaffRegister().setVisible(true);
-                this.setVisible(false);
         }else if (Finals_enrollment.previousFrame.equals("Login")) {
                 Finals_enrollment.previousFrame = "StudentLogin";
                 new F09_LoginSS().setVisible(true);
                 this.setVisible(false);
         }else if (Finals_enrollment.previousFrame.equals("ProfessorLogin")) {
                 Finals_enrollment.previousFrame = "ProfessorLogin"; 
-                F09_LoginSS loginFrame = new F09_LoginSS();
-                loginFrame.setVisible(true);
-                this.setVisible(false);
-        } else if (Finals_enrollment.previousFrame.equals("RegistrarLogin")) {
-                Finals_enrollment.previousFrame = "RegistrarLogin";  
                 F09_LoginSS loginFrame = new F09_LoginSS();
                 loginFrame.setVisible(true);
                 this.setVisible(false);
@@ -163,7 +156,7 @@ public class F08_Back extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backno;
     private javax.swing.JButton backyes;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

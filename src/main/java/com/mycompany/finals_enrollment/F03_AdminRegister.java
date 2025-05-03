@@ -31,28 +31,17 @@ public class F03_AdminRegister extends javax.swing.JFrame {
     private void initComponents() {
 
         RegisterAccount = new javax.swing.JPanel();
-        register_reg = new javax.swing.JButton();
         register_student = new javax.swing.JButton();
         register_prof = new javax.swing.JButton();
         ar_back = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(920, 580));
+        setMinimumSize(new java.awt.Dimension(900, 550));
+        setUndecorated(true);
         getContentPane().setLayout(null);
 
         RegisterAccount.setLayout(null);
-
-        register_reg.setBorder(null);
-        register_reg.setBorderPainted(false);
-        register_reg.setContentAreaFilled(false);
-        register_reg.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                register_regActionPerformed(evt);
-            }
-        });
-        RegisterAccount.add(register_reg);
-        register_reg.setBounds(620, 250, 140, 120);
 
         register_student.setBorder(null);
         register_student.setBorderPainted(false);
@@ -63,7 +52,7 @@ public class F03_AdminRegister extends javax.swing.JFrame {
             }
         });
         RegisterAccount.add(register_student);
-        register_student.setBounds(180, 200, 190, 210);
+        register_student.setBounds(300, 240, 130, 160);
 
         register_prof.setBorder(null);
         register_prof.setBorderPainted(false);
@@ -74,7 +63,7 @@ public class F03_AdminRegister extends javax.swing.JFrame {
             }
         });
         RegisterAccount.add(register_prof);
-        register_prof.setBounds(430, 250, 140, 120);
+        register_prof.setBounds(470, 240, 150, 160);
 
         ar_back.setBorderPainted(false);
         ar_back.setContentAreaFilled(false);
@@ -84,9 +73,9 @@ public class F03_AdminRegister extends javax.swing.JFrame {
             }
         });
         RegisterAccount.add(ar_back);
-        ar_back.setBounds(795, 493, 70, 40);
+        ar_back.setBounds(580, 490, 70, 40);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminreg.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/regi.png"))); // NOI18N
         RegisterAccount.add(jLabel1);
         jLabel1.setBounds(0, 0, 900, 550);
 
@@ -95,13 +84,6 @@ public class F03_AdminRegister extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void register_regActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_register_regActionPerformed
-        Finals_enrollment.previousFrame =("RegistrarRegister");
-        new F04_AdminPassword().setVisible(true);
-        this.setVisible(false);
-        
-    }//GEN-LAST:event_register_regActionPerformed
 
     private void register_studentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_register_studentActionPerformed
         Finals_enrollment.previousFrame =("StudentRegister");
@@ -162,7 +144,6 @@ public class F03_AdminRegister extends javax.swing.JFrame {
     private javax.swing.JButton ar_back;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton register_prof;
-    private javax.swing.JButton register_reg;
     private javax.swing.JButton register_student;
     // End of variables declaration//GEN-END:variables
 }

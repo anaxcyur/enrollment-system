@@ -3,26 +3,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.finals_enrollment;
-
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author aname
  */
 public class F02_AdminLogin extends javax.swing.JFrame {
-
+        private int attempts = 3;
+        private Timer loginTimer;
     /**
      * Creates new form F2_AdminLogin
      */
-    
-
     public F02_AdminLogin() {
         initComponents();
         setLocationRelativeTo(null);
+        admin_username.setBackground(new Color(0, 0, 0, 0));
+        admin_password.setBackground(new Color(0, 0, 0, 0));
         
     }
 
@@ -47,7 +48,8 @@ public class F02_AdminLogin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(920, 580));
+        setMinimumSize(new java.awt.Dimension(900, 550));
+        setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);
@@ -60,7 +62,7 @@ public class F02_AdminLogin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(admin_clearlogin);
-        admin_clearlogin.setBounds(420, 380, 70, 40);
+        admin_clearlogin.setBounds(370, 420, 70, 30);
 
         admin_backogin.setBorderPainted(false);
         admin_backogin.setContentAreaFilled(false);
@@ -70,7 +72,7 @@ public class F02_AdminLogin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(admin_backogin);
-        admin_backogin.setBounds(500, 380, 70, 40);
+        admin_backogin.setBounds(580, 500, 70, 30);
 
         admin_registerlogin.setBorderPainted(false);
         admin_registerlogin.setContentAreaFilled(false);
@@ -80,7 +82,7 @@ public class F02_AdminLogin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(admin_registerlogin);
-        admin_registerlogin.setBounds(420, 440, 60, 30);
+        admin_registerlogin.setBounds(410, 460, 80, 40);
 
         admin_enterlogin.setBorderPainted(false);
         admin_enterlogin.setContentAreaFilled(false);
@@ -90,9 +92,8 @@ public class F02_AdminLogin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(admin_enterlogin);
-        admin_enterlogin.setBounds(330, 383, 70, 40);
+        admin_enterlogin.setBounds(460, 420, 70, 30);
 
-        admin_unhide.setText("jButton1");
         admin_unhide.setBorderPainted(false);
         admin_unhide.setContentAreaFilled(false);
         admin_unhide.addActionListener(new java.awt.event.ActionListener() {
@@ -101,20 +102,30 @@ public class F02_AdminLogin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(admin_unhide);
-        admin_unhide.setBounds(540, 330, 30, 23);
+        admin_unhide.setBounds(580, 290, 30, 30);
 
         admin_username.setBackground(new java.awt.Color(255, 255, 255));
         admin_username.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         admin_username.setBorder(null);
+        admin_username.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                admin_usernameActionPerformed(evt);
+            }
+        });
         jPanel1.add(admin_username);
-        admin_username.setBounds(370, 250, 160, 30);
+        admin_username.setBounds(410, 240, 160, 30);
 
         admin_password.setBackground(new java.awt.Color(255, 255, 255));
         admin_password.setForeground(new java.awt.Color(0, 0, 0));
         admin_password.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         admin_password.setBorder(null);
+        admin_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                admin_passwordActionPerformed(evt);
+            }
+        });
         jPanel1.add(admin_password);
-        admin_password.setBounds(370, 320, 160, 30);
+        admin_password.setBounds(400, 290, 170, 30);
 
         admin_exit.setBorderPainted(false);
         admin_exit.setContentAreaFilled(false);
@@ -124,10 +135,10 @@ public class F02_AdminLogin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(admin_exit);
-        admin_exit.setBounds(800, 493, 60, 40);
+        admin_exit.setBounds(240, 500, 60, 40);
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminlogin.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ADMINLOG.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 900, 550);
 
@@ -144,41 +155,33 @@ public class F02_AdminLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_admin_backoginActionPerformed
 
     private void admin_enterloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admin_enterloginActionPerformed
-       String uname1 = admin_username.getText();
-String pass1 = admin_password.getText();
+        String uname1 = admin_username.getText();
+        String pass1 = admin_password.getText();
 
-int a = Finals_enrollment.username.size();
-int i;
+        int a = Finals_enrollment.username.size();
+        int i;
 
-if (uname1.isEmpty() || pass1.isEmpty()) {
-    JOptionPane.showMessageDialog(null, "Please enter username and password.");
-    return; 
-}
+        if (attempts <= 0) {
+        JOptionPane.showMessageDialog(null, "Too many failed attempts. Access locked.");
+        admin_enterlogin.setEnabled(false); 
 
-if (Finals_enrollment.adminAttempts == 0) {
-    JOptionPane.showMessageDialog(null, "Too many failed attempts. Access locked.");
-    admin_enterlogin.setEnabled(false); 
-    admin_username.setEnabled(false); 
-    admin_password.setEnabled(false); 
+        
+        loginTimer = new Timer(10000, new ActionListener() { 
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                attempts = 3;
+                admin_enterlogin.setEnabled(true); 
+                JOptionPane.showMessageDialog(null, "You can try logging in again.");
+                loginTimer.stop(); 
+                System.out.println("Timer finished. Login enabled again.");
+            }
+        });
 
-    Finals_enrollment.adminTimer = new Timer(10000, new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            Finals_enrollment.adminAttempts = 3;
-            admin_enterlogin.setEnabled(true); 
-            admin_username.setEnabled(true); 
-            admin_password.setEnabled(true); 
-            admin_username.setText("");
-            admin_password.setText("");
-            JOptionPane.showMessageDialog(null, "You can try logging in again.");
-            Finals_enrollment.adminTimer.stop();
-        }
-    });
+        loginTimer.setRepeats(false); 
+        loginTimer.start();
 
-            Finals_enrollment.adminTimer.setRepeats(false);
-            Finals_enrollment.adminTimer.start();
-            return;
-        }
+        return; 
+    }
 
         if (Finals_enrollment.username.contains(uname1)) {
             for (i = 0; i < a; i++) {
@@ -186,14 +189,14 @@ if (Finals_enrollment.adminAttempts == 0) {
                     if (pass1.length() <= 2) {
                         JOptionPane.showMessageDialog(null, "Password too short.");
                         admin_password.setText("");
-                        Finals_enrollment.adminAttempts--;
+                        attempts--;
                     } else if (pass1.length() > 500) {
                         JOptionPane.showMessageDialog(null, "Password too long.");
                         admin_password.setText("");
-                        Finals_enrollment.adminAttempts--;
+                        
                     } else if (!pass1.equals(Finals_enrollment.password.get(i))) {
-                        Finals_enrollment.adminAttempts--;
-                        JOptionPane.showMessageDialog(null, "Incorrect password for " + uname1 + ". Attempts left: " + Finals_enrollment.adminAttempts);
+                        attempts--;
+                        JOptionPane.showMessageDialog(null, "Incorrect password for " + uname1 + ". Attempts left: " + attempts);
                         admin_password.setText("");
                     } else {
                         JOptionPane.showMessageDialog(null, "LOGIN SUCCESSFUL!");
@@ -208,46 +211,18 @@ if (Finals_enrollment.adminAttempts == 0) {
             new F14_AdminPortal().setVisible(true);
             this.setVisible(false);
         } else {
-            Finals_enrollment.adminAttempts--;
-            JOptionPane.showMessageDialog(null, "Username doesn't exist or incorrect. Attempts left: " + Finals_enrollment.adminAttempts);
+            attempts--;
+            JOptionPane.showMessageDialog(null, "Username doesn't exist or incorrect. Attempts left: " + attempts);
             admin_username.setText("");
             admin_password.setText("");
         }
 
-        if (Finals_enrollment.adminAttempts <= 0) {
+        if (attempts <= 0) {
             JOptionPane.showMessageDialog(null, "Too many failed attempts. Access locked.");
             admin_enterlogin.setEnabled(false); 
-            admin_username.setEnabled(false); 
-            admin_password.setEnabled(false); 
-
-            Finals_enrollment.adminTimer = new Timer(10000, new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    Finals_enrollment.adminAttempts = 3;
-                    admin_enterlogin.setEnabled(true); 
-                    admin_username.setEnabled(true); 
-                    admin_password.setEnabled(true); 
-                    admin_username.setText("");
-                    admin_password.setText("");
-                    JOptionPane.showMessageDialog(null, "You can try logging in again.");
-                    Finals_enrollment.adminTimer.stop();
-                }
-            });
-
-            Finals_enrollment.adminTimer.setRepeats(false);
-            Finals_enrollment.adminTimer.start();
         }
 
     }//GEN-LAST:event_admin_enterloginActionPerformed
-
-    private void admin_unhideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admin_unhideActionPerformed
-          if (admin_password.getEchoChar() == '*') {  
-            admin_password.setEchoChar((char) 0);  
-        } 
-        else {
-            admin_password.setEchoChar('*');  
-    }
-    }//GEN-LAST:event_admin_unhideActionPerformed
 
     private void admin_clearloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admin_clearloginActionPerformed
         admin_password.setText("");
@@ -264,6 +239,23 @@ if (Finals_enrollment.adminAttempts == 0) {
         new F04_AdminPassword().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_admin_exitActionPerformed
+
+    private void admin_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admin_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_admin_passwordActionPerformed
+
+    private void admin_unhideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admin_unhideActionPerformed
+        if (admin_password.getEchoChar() == '*') {
+            admin_password.setEchoChar((char) 0);
+        }
+        else {
+            admin_password.setEchoChar('*');
+        }
+    }//GEN-LAST:event_admin_unhideActionPerformed
+
+    private void admin_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admin_usernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_admin_usernameActionPerformed
 
     /**
      * @param args the command line arguments

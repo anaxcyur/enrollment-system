@@ -33,7 +33,8 @@ public class F05_Disclaimer extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(920, 580));
+        setMinimumSize(new java.awt.Dimension(900, 550));
+        setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);
@@ -46,9 +47,9 @@ public class F05_Disclaimer extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(420, 450, 60, 40);
+        jButton1.setBounds(430, 450, 70, 30);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DISCLAIMER.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/disclaimer.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 900, 550);
 
@@ -62,12 +63,10 @@ public class F05_Disclaimer extends javax.swing.JFrame {
         if (Finals_enrollment.previousFrame.equals("StudentRegister")) {
                 new F06_StudentRegister().setVisible(true);
                 this.setVisible(false);      
-        } else if (Finals_enrollment.previousFrame.equals("ProfessorRegister")) {
-                new F07_StaffRegister().setVisible(true);
-                this.setVisible(false);
-        }else if (Finals_enrollment.previousFrame.equals("RegistrarRegister")) {
-                new F07_StaffRegister().setVisible(true);
-                this.setVisible(false);
+        }else if (Finals_enrollment.previousFrame.equals("ProfessorRegister")) {
+                Finals_enrollment.previousFrame =("ProfessorRegister");
+        new F07_ProfRegister().setVisible(true);
+        this.setVisible(false);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

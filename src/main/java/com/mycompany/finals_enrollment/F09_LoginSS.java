@@ -4,10 +4,8 @@
  */
 package com.mycompany.finals_enrollment;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.Color;
 import javax.swing.JOptionPane;
-import javax.swing.Timer;
 
 /**
  *
@@ -21,6 +19,8 @@ public class F09_LoginSS extends javax.swing.JFrame {
     public F09_LoginSS() {
         initComponents();
         setLocationRelativeTo(null);
+        login_password.setBackground(new Color(0, 0, 0, 0));
+        login_username.setBackground(new Color(0, 0, 0, 0));
     }
 
     /**
@@ -43,7 +43,8 @@ public class F09_LoginSS extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(920, 580));
+        setMinimumSize(new java.awt.Dimension(900, 550));
+        setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);
@@ -56,7 +57,7 @@ public class F09_LoginSS extends javax.swing.JFrame {
             }
         });
         jPanel1.add(login_clear);
-        login_clear.setBounds(420, 390, 60, 30);
+        login_clear.setBounds(370, 420, 60, 30);
 
         login_back.setBorderPainted(false);
         login_back.setContentAreaFilled(false);
@@ -66,7 +67,7 @@ public class F09_LoginSS extends javax.swing.JFrame {
             }
         });
         jPanel1.add(login_back);
-        login_back.setBounds(500, 390, 70, 30);
+        login_back.setBounds(580, 500, 70, 30);
 
         login_enter.setBorderPainted(false);
         login_enter.setContentAreaFilled(false);
@@ -76,14 +77,14 @@ public class F09_LoginSS extends javax.swing.JFrame {
             }
         });
         jPanel1.add(login_enter);
-        login_enter.setBounds(330, 380, 70, 40);
+        login_enter.setBounds(460, 420, 70, 30);
 
         login_username.setBackground(new java.awt.Color(255, 255, 255));
         login_username.setForeground(new java.awt.Color(0, 0, 0));
         login_username.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         login_username.setBorder(null);
         jPanel1.add(login_username);
-        login_username.setBounds(370, 250, 160, 30);
+        login_username.setBounds(410, 240, 160, 30);
 
         login_unhide.setBorderPainted(false);
         login_unhide.setContentAreaFilled(false);
@@ -93,7 +94,7 @@ public class F09_LoginSS extends javax.swing.JFrame {
             }
         });
         jPanel1.add(login_unhide);
-        login_unhide.setBounds(540, 320, 30, 30);
+        login_unhide.setBounds(580, 290, 30, 30);
 
         login_exit.setBorderPainted(false);
         login_exit.setContentAreaFilled(false);
@@ -103,16 +104,16 @@ public class F09_LoginSS extends javax.swing.JFrame {
             }
         });
         jPanel1.add(login_exit);
-        login_exit.setBounds(780, 480, 60, 40);
+        login_exit.setBounds(250, 490, 60, 40);
 
         login_password.setBackground(new java.awt.Color(255, 255, 255));
         login_password.setForeground(new java.awt.Color(0, 0, 0));
         login_password.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         login_password.setBorder(null);
         jPanel1.add(login_password);
-        login_password.setBounds(370, 320, 160, 30);
+        login_password.setBounds(400, 290, 180, 30);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/loginboth.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/log.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 900, 550);
 
@@ -128,257 +129,63 @@ public class F09_LoginSS extends javax.swing.JFrame {
 
     private void login_enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_enterActionPerformed
         String uname = login_username.getText();
-        String pass = login_password.getText();
+String pass = login_password.getText();
 
 switch (Finals_enrollment.previousFrame) {
     case "StudentLogin" -> {
-    int a = Finals_enrollment.username1.size();
+        int a = Finals_enrollment.username1.size();
+        int i;
 
-    if (uname.isEmpty() || pass.isEmpty()) {
-        JOptionPane.showMessageDialog(null, "Please enter both username and password.");
-        return;
-    }
-
-    if (Finals_enrollment.studentAttempts == 0) {
-        JOptionPane.showMessageDialog(null, "Too many failed attempts. Access locked.");
-        login_enter.setEnabled(false);
-        login_username.setEnabled(false);
-        login_password.setEnabled(false);
-
-        Finals_enrollment.studentTimer = new Timer(10000, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Finals_enrollment.studentAttempts = 3; 
-                login_enter.setEnabled(true);
-                login_username.setEnabled(true);
-                login_password.setEnabled(true);
-                login_username.setText("");
-                login_password.setText("");
-                JOptionPane.showMessageDialog(null, "You can try logging in again.");
-                Finals_enrollment.studentTimer.stop();
-            }
-        });
-
-                Finals_enrollment.studentTimer.setRepeats(false);
-                Finals_enrollment.studentTimer.start();
-                return;
-            }
-
-            boolean found = false;
-
-            for (int i = 0; i < a; i++) {
-                if (uname.equals(Finals_enrollment.username1.get(i))) {
-                    found = true;
+        if (Finals_enrollment.username1.contains(uname)) {
+            for (i = 0; i < a;) {
+                if (!uname.equals(Finals_enrollment.username1.get(i))) {
+                    i++;
+                } else {
                     if (!pass.equals(Finals_enrollment.password1.get(i))) {
-                        Finals_enrollment.studentAttempts--;
-                        JOptionPane.showMessageDialog(null, "Incorrect password for " + uname + ". Attempts left: " + Finals_enrollment.studentAttempts);
+                        JOptionPane.showMessageDialog(null, "Incorrect password for " + uname);
                         login_password.setText("");
+                        break;
                     } else {
                         JOptionPane.showMessageDialog(null, "LOGIN SUCCESSFUL!");
                         new F10_StudentPortal().setVisible(true);
                         this.setVisible(false);
+                        break;
                     }
-                    return;
                 }
             }
-
-            if (!found) {
-                Finals_enrollment.studentAttempts--;
-                JOptionPane.showMessageDialog(null, "Username doesn't exist! Attempts left: " + Finals_enrollment.studentAttempts);
-                login_username.setText("");
-                login_password.setText("");
-            }
-
-            if (Finals_enrollment.studentAttempts <= 0) {
-                JOptionPane.showMessageDialog(null, "Too many failed attempts. Access locked.");
-                login_enter.setEnabled(false);
-                login_username.setEnabled(false);
-                login_password.setEnabled(false);
-
-                Finals_enrollment.studentTimer = new Timer(10000, new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        Finals_enrollment.studentAttempts = 3;
-                        login_enter.setEnabled(true);
-                        login_username.setEnabled(true);
-                        login_password.setEnabled(true);
-                        login_username.setText("");
-                        login_password.setText("");
-                        JOptionPane.showMessageDialog(null, "You can try logging in again.");
-                        Finals_enrollment.studentTimer.stop();
-                    }
-                });
-
-                Finals_enrollment.studentTimer.setRepeats(false);
-                Finals_enrollment.studentTimer.start();
-            } 
+        } else {
+            JOptionPane.showMessageDialog(null, "Username doesn't exist!");
+            login_username.setText("");
+        }
     }
 
     case "ProfessorLogin" -> {
         int a = Finals_enrollment.username.size();
+        int i;
 
-        if (uname.isEmpty() || pass.isEmpty()) {
-        JOptionPane.showMessageDialog(null, "Please enter both username and password.");
-        return;
-}
-
-    if (Finals_enrollment.professorAttempts == 0) {
-        JOptionPane.showMessageDialog(null, "Too many failed attempts. Access locked.");
-        login_enter.setEnabled(false);
-        login_username.setEnabled(false);
-        login_password.setEnabled(false);
-
-    Finals_enrollment.professorTimer = new Timer(10000, new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            Finals_enrollment.professorAttempts = 3; 
-            login_enter.setEnabled(true);
-            login_username.setEnabled(true);
-            login_password.setEnabled(true);
-            login_username.setText("");
-            login_password.setText("");
-            JOptionPane.showMessageDialog(null, "You can try logging in again.");
-            Finals_enrollment.professorTimer.stop();
-        }
-    });
-
-            Finals_enrollment.professorTimer.setRepeats(false);
-            Finals_enrollment.professorTimer.start();
-            return;
-        }
-
-        boolean found = false;
-        for (int i = 0; i < a; i++) {
-            if (uname.equals(Finals_enrollment.username.get(i))) {
-                found = true;
-                if (!pass.equals(Finals_enrollment.password.get(i))) {
-                    Finals_enrollment.professorAttempts--;
-                    JOptionPane.showMessageDialog(null, "Incorrect password for " + uname + ". Attempts left: " + Finals_enrollment.professorAttempts);
-                    login_password.setText("");
+        if (Finals_enrollment.username.contains(uname)) {
+            for (i = 0; i < a;) {
+                if (!uname.equals(Finals_enrollment.username.get(i))) {
+                    i++;
                 } else {
-                    JOptionPane.showMessageDialog(null, "LOGIN SUCCESSFUL!");
-                    new F10_StudentPortal().setVisible(true);
-                    this.setVisible(false);
-                }
-                return;
-            }
-        }
-
-        if (!found) {
-            Finals_enrollment.professorAttempts--;
-            JOptionPane.showMessageDialog(null, "Username doesn't exist! Attempts left: " + Finals_enrollment.professorAttempts);
-            login_username.setText("");
-            login_password.setText("");
-        }
-
-        if (Finals_enrollment.professorAttempts <= 0) {
-            JOptionPane.showMessageDialog(null, "Too many failed attempts. Access locked.");
-            login_enter.setEnabled(false);
-            login_username.setEnabled(false);
-            login_password.setEnabled(false);
-
-            Finals_enrollment.professorTimer = new Timer(10000, new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    Finals_enrollment.professorAttempts = 3;
-                    login_enter.setEnabled(true);
-                    login_username.setEnabled(true);
-                    login_password.setEnabled(true);
-                    login_username.setText("");
-                    login_password.setText("");
-                    JOptionPane.showMessageDialog(null, "You can try logging in again.");
-                    Finals_enrollment.professorTimer.stop();
-                }
-            });
-
-            Finals_enrollment.professorTimer.setRepeats(false);
-            Finals_enrollment.professorTimer.start();
-        }
-    }
-
-    case "RegistrarLogin" -> {
-        int a = Finals_enrollment.username2.size();
-
-        if (uname.isEmpty() || pass.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please enter both username and password.");
-            return;
-        }
-
-        if (Finals_enrollment.registrarAttempts == 0) {
-            JOptionPane.showMessageDialog(null, "Too many failed attempts. Access locked.");
-            login_enter.setEnabled(false);
-            login_username.setEnabled(false);
-            login_password.setEnabled(false);
-
-            Finals_enrollment.registrarTimer = new Timer(10000, new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    Finals_enrollment.registrarAttempts = 3;
-                    login_enter.setEnabled(true);
-                    login_username.setEnabled(true);
-                    login_password.setEnabled(true);
-                    login_username.setText("");
-                    login_password.setText("");
-                    JOptionPane.showMessageDialog(null, "You can try logging in again.");
-                    Finals_enrollment.registrarTimer.stop();
-                }
-            });
-
-            Finals_enrollment.registrarTimer.setRepeats(false);
-            Finals_enrollment.registrarTimer.start();
-            return;
-        }
-
-        if (Finals_enrollment.username2.contains(uname)) {
-            for (int i = 0; i < a; i++) {
-                if (uname.equals(Finals_enrollment.username2.get(i))) {
-                    if (!pass.equals(Finals_enrollment.password2.get(i))) {
-                        Finals_enrollment.registrarAttempts--;
-                        JOptionPane.showMessageDialog(null, "Incorrect password for " + uname + ". Attempts left: " + Finals_enrollment.registrarAttempts);
+                    if (!pass.equals(Finals_enrollment.password.get(i))) {
+                        JOptionPane.showMessageDialog(null, "Incorrect password for " + uname);
                         login_password.setText("");
+                        break;
                     } else {
                         JOptionPane.showMessageDialog(null, "LOGIN SUCCESSFUL!");
-                        new F13_RegistrarPortal().setVisible(true);
+                        new F12_ProfessorPortal().setVisible(true);
                         this.setVisible(false);
+                        break;
                     }
-                    return;
                 }
             }
         } else {
-            Finals_enrollment.registrarAttempts--;
-            JOptionPane.showMessageDialog(null, "Username doesn't exist! Attempts left: " + Finals_enrollment.registrarAttempts);
-            
-            login_password.setText("");
-        }
-
-        if (Finals_enrollment.registrarAttempts <= 0) {
-            JOptionPane.showMessageDialog(null, "Too many failed attempts. Access locked.");
-            login_enter.setEnabled(false);
-            login_username.setEnabled(false);
-            login_password.setEnabled(false);
-
-            Finals_enrollment.registrarTimer = new Timer(10000, new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    Finals_enrollment.registrarAttempts = 3;
-                    login_enter.setEnabled(true);
-                    login_username.setEnabled(true);
-                    login_password.setEnabled(true);
-                    login_username.setText("");
-                    login_password.setText("");
-                    JOptionPane.showMessageDialog(null, "You can try logging in again.");
-                    Finals_enrollment.registrarTimer.stop();
-                }
-            });
-
-            Finals_enrollment.registrarTimer.setRepeats(false);
-            Finals_enrollment.registrarTimer.start();
+            JOptionPane.showMessageDialog(null, "Username doesn't exist!");
+            login_username.setText("");
         }
     }
-
-    default -> {
-        JOptionPane.showMessageDialog(null, "Invalid login context!");
-    }
+    
 }
 
     }//GEN-LAST:event_login_enterActionPerformed
@@ -390,7 +197,7 @@ switch (Finals_enrollment.previousFrame) {
     }//GEN-LAST:event_login_clearActionPerformed
 
     private void login_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_backActionPerformed
-        Finals_enrollment.previousFrame= ("Login"); 
+        Finals_enrollment.previousFrame= ("Login");
         new F08_Back().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_login_backActionPerformed

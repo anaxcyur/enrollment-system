@@ -33,7 +33,8 @@ public class F11_Exit extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(920, 580));
+        setMinimumSize(new java.awt.Dimension(900, 550));
+        setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);
@@ -46,7 +47,7 @@ public class F11_Exit extends javax.swing.JFrame {
             }
         });
         jPanel1.add(exit_no);
-        exit_no.setBounds(500, 390, 70, 40);
+        exit_no.setBounds(480, 330, 60, 30);
 
         exit_yes.setBorderPainted(false);
         exit_yes.setContentAreaFilled(false);
@@ -56,9 +57,9 @@ public class F11_Exit extends javax.swing.JFrame {
             }
         });
         jPanel1.add(exit_yes);
-        exit_yes.setBounds(330, 390, 70, 40);
+        exit_yes.setBounds(370, 330, 60, 30);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/confirmexitlogin.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EXIT.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 900, 550);
 
@@ -95,9 +96,6 @@ public class F11_Exit extends javax.swing.JFrame {
                 this.setVisible(false);
         }else if (Finals_enrollment.previousFrame.equals("ProfessorExit")) {
                 new F12_ProfessorPortal().setVisible(true);
-                this.setVisible(false);
-        }else if (Finals_enrollment.previousFrame.equals("RegistrarPortalExit")) {
-                new F13_RegistrarPortal().setVisible(true);
                 this.setVisible(false);
         }else if (Finals_enrollment.previousFrame.equals("AdminPortalExit")) {
                 new F14_AdminPortal().setVisible(true);
