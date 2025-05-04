@@ -29,6 +29,7 @@ public class F00_StartUp extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         startupbutton = new javax.swing.JButton();
+        signup = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,6 +49,16 @@ public class F00_StartUp extends javax.swing.JFrame {
         jPanel1.add(startupbutton);
         startupbutton.setBounds(540, 40, 70, 20);
 
+        signup.setBorderPainted(false);
+        signup.setContentAreaFilled(false);
+        signup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signupActionPerformed(evt);
+            }
+        });
+        jPanel1.add(signup);
+        signup.setBounds(650, 40, 90, 20);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/startup.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 900, 550);
@@ -62,6 +73,11 @@ public class F00_StartUp extends javax.swing.JFrame {
         new F01_Homepage().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_startupbuttonActionPerformed
+
+    private void signupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupActionPerformed
+        new F15_SignUp().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_signupActionPerformed
 
     /**
      * @param args the command line arguments
@@ -102,6 +118,7 @@ public class F00_StartUp extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton signup;
     private javax.swing.JButton startupbutton;
     // End of variables declaration//GEN-END:variables
 }

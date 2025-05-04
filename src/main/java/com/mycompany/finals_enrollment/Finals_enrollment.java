@@ -29,6 +29,14 @@ public class Finals_enrollment {
     public static int professorAttempts = 3;
     public static Timer professorTimer;
     
+    //Sign up students
+    public static ArrayList<String> sname = new ArrayList<String>();
+    public static ArrayList<String> fname = new ArrayList<String>();
+    public static ArrayList<String> sex = new ArrayList<String>();
+    public static ArrayList<String> address = new ArrayList<String>();
+    public static ArrayList<String> number = new ArrayList<String>();
+    public static ArrayList<String> course = new ArrayList<String>();
+    
     
      
   

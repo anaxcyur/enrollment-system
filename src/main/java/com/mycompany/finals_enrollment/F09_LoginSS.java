@@ -24,6 +24,15 @@ public class F09_LoginSS extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         login_password.setBackground(new Color(0, 0, 0, 0));
         login_username.setBackground(new Color(0, 0, 0, 0));
+        
+       ActionListener sharedLoginListener = new ActionListener() {
+        public void actionPerformed(ActionEvent evt) {
+            login_enterActionPerformed(evt);
+        }
+    };
+
+            login_username.addActionListener(sharedLoginListener);
+            login_password.addActionListener(sharedLoginListener);
     }
 
     /**

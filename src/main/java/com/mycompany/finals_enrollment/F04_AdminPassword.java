@@ -4,6 +4,7 @@
  */
 package com.mycompany.finals_enrollment;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +19,13 @@ public class F04_AdminPassword extends javax.swing.JFrame {
     public F04_AdminPassword() {
         initComponents();
         setLocationRelativeTo(null);
+        adminpass.setBackground(new Color(0, 0, 0, 0));
+        
+        adminpass.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ap_enterActionPerformed(evt); 
+    }
+});
     }
 
     /**
@@ -49,9 +57,8 @@ public class F04_AdminPassword extends javax.swing.JFrame {
         adminpass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         adminpass.setBorder(null);
         jPanel1.add(adminpass);
-        adminpass.setBounds(310, 260, 290, 30);
+        adminpass.setBounds(340, 260, 230, 30);
 
-        ap_unhide.setText("jButton1");
         ap_unhide.setBorderPainted(false);
         ap_unhide.setContentAreaFilled(false);
         ap_unhide.addActionListener(new java.awt.event.ActionListener() {
@@ -60,7 +67,7 @@ public class F04_AdminPassword extends javax.swing.JFrame {
             }
         });
         jPanel1.add(ap_unhide);
-        ap_unhide.setBounds(610, 260, 30, 30);
+        ap_unhide.setBounds(570, 260, 30, 30);
 
         ap_clear.setBorderPainted(false);
         ap_clear.setContentAreaFilled(false);
@@ -70,7 +77,7 @@ public class F04_AdminPassword extends javax.swing.JFrame {
             }
         });
         jPanel1.add(ap_clear);
-        ap_clear.setBounds(410, 330, 90, 40);
+        ap_clear.setBounds(430, 320, 50, 30);
 
         ap_back.setBorderPainted(false);
         ap_back.setContentAreaFilled(false);
@@ -80,7 +87,7 @@ public class F04_AdminPassword extends javax.swing.JFrame {
             }
         });
         jPanel1.add(ap_back);
-        ap_back.setBounds(310, 330, 80, 40);
+        ap_back.setBounds(350, 320, 60, 30);
 
         ap_enter.setBorderPainted(false);
         ap_enter.setContentAreaFilled(false);
@@ -95,7 +102,7 @@ public class F04_AdminPassword extends javax.swing.JFrame {
             }
         });
         jPanel1.add(ap_enter);
-        ap_enter.setBounds(520, 330, 80, 40);
+        ap_enter.setBounds(500, 320, 60, 30);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminpass.png"))); // NOI18N
         jPanel1.add(jLabel1);

@@ -3,6 +3,8 @@ package com.mycompany.finals_enrollment;
 
 import com.mycompany.finals_enrollment.Finals_enrollment;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 /*
@@ -26,7 +28,35 @@ public class F07_ProfRegister extends javax.swing.JFrame {
         prof_username.setBackground(new Color(0, 0, 0, 0));
         prof_pass.setBackground(new Color(0, 0, 0, 0));
         prof_conpass.setBackground(new Color(0, 0, 0, 0));
+        
+        ActionListener sharedLoginListener = new ActionListener() {
+        public void actionPerformed(ActionEvent evt) {
+            prof_enterActionPerformed(evt);
+        }
+    };
+        
+
+        prof_name.addActionListener(sharedLoginListener);
+        prof_username.addActionListener(sharedLoginListener);
+        prof_pass.addActionListener(sharedLoginListener);
+        prof_conpass.addActionListener(sharedLoginListener);
     }
+        private boolean isValidInput(String input) {
+        if (input.length() < 5) return false;
+
+        boolean hasUpper = false;
+        boolean hasDigit = false;
+        boolean hasSpecial = false;
+
+        for (char ch : input.toCharArray()) {
+            if (Character.isUpperCase(ch)) hasUpper = true;
+            else if (Character.isDigit(ch)) hasDigit = true;
+            else if (!Character.isLetterOrDigit(ch)) hasSpecial = true;
+        }
+
+        return hasUpper && hasDigit && hasSpecial;
+}
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -127,35 +157,46 @@ public class F07_ProfRegister extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void prof_enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prof_enterActionPerformed
-         String name = prof_name.getText();
+        String name = prof_name.getText();
         String username = prof_username.getText();
         String password = prof_pass.getText();
         String confirmpass = prof_conpass.getText();
-        
-        if (password.length()>0&&name.length()>0&&username.length()>0&&confirmpass.length()>0&&password.equals(confirmpass)){
-            Finals_enrollment.username.add(prof_username.getText());
-            Finals_enrollment.password.add(prof_pass.getText());
-            JOptionPane.showMessageDialog(null, "New Account Registered!");   
-            prof_pass.setText("");
-            prof_conpass.setText("");
-            prof_name.setText("");
-            prof_username.setText("");
-       
-      
-        }else if (!password.equals(confirmpass)){
-            Finals_enrollment.username.add(prof_username.getText());
-            Finals_enrollment.password.add(prof_pass.getText());
-            JOptionPane.showMessageDialog(null, "Please confirm the password again");
-            
-            prof_conpass.setText("");
+
+        if (name.length() < 3) {
+            JOptionPane.showMessageDialog(null, "Name must be at least 3 letters long.");
+            return;
         }
-        else{
-            JOptionPane.showMessageDialog(null, "TRY AGAIN!");  
-            prof_pass.setText("");
+
+        if (!isValidInput(username)) {
+            JOptionPane.showMessageDialog(null, "Username must be at least 5 characters long and include an uppercase letter, a number, and a special character.");
+            return;
+        }
+
+        if (!isValidInput(password)) {
+            JOptionPane.showMessageDialog(null, "Password must be at least 5 characters long and include an uppercase letter, a number, and a special character.");
+            return;
+        }
+
+        if (!isValidInput(confirmpass)) {
+            JOptionPane.showMessageDialog(null, "Confirm Password must be at least 5 characters long and include an uppercase letter, a number, and a special character.");
+            return;
+        }
+
+        if (!password.equals(confirmpass)) {
+            JOptionPane.showMessageDialog(null, "Passwords do not match. Please confirm the password again.");
             prof_conpass.setText("");
-            prof_name.setText("");
-            prof_username.setText("");
-                }
+            return;
+        }
+
+        Finals_enrollment.username.add(username);
+        Finals_enrollment.password.add(password);
+        JOptionPane.showMessageDialog(null, "New Account Registered!");
+
+        prof_pass.setText("");
+        prof_conpass.setText("");
+        prof_name.setText("");
+        prof_username.setText("");
+
     }//GEN-LAST:event_prof_enterActionPerformed
 
     private void prof_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prof_clearActionPerformed

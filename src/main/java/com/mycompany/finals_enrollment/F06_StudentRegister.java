@@ -1,6 +1,8 @@
 package com.mycompany.finals_enrollment;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 /*
@@ -24,7 +26,34 @@ public class F06_StudentRegister extends javax.swing.JFrame {
         sr_username.setBackground(new Color(0, 0, 0, 0));
         sr_password.setBackground(new Color(0, 0, 0, 0));
         sr_conpass.setBackground(new Color(0, 0, 0, 0));
+        
+        ActionListener sharedLoginListener = new ActionListener() {
+        public void actionPerformed(ActionEvent evt) {
+            sr_saveActionPerformed(evt);
+        }
+    };
+
+        sr_name.addActionListener(sharedLoginListener);
+        sr_username.addActionListener(sharedLoginListener);
+        sr_password.addActionListener(sharedLoginListener);
+        sr_conpass.addActionListener(sharedLoginListener);
     }
+        private boolean isValidInput(String input) {
+            if (input.length() < 5) return false;
+
+            boolean hasUpper = false;
+            boolean hasDigit = false;
+            boolean hasSpecial = false;
+
+            for (char ch : input.toCharArray()) {
+                if (Character.isUpperCase(ch)) hasUpper = true;
+                else if (Character.isDigit(ch)) hasDigit = true;
+                else if (!Character.isLetterOrDigit(ch)) hasSpecial = true;
+            }
+
+            return hasUpper && hasDigit && hasSpecial;
+        }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -150,30 +179,47 @@ public class F06_StudentRegister extends javax.swing.JFrame {
         String password = sr_password.getText();
         String confirmpass = sr_conpass.getText();
         
-        if (password.length()>0&&name.length()>0&&username.length()>0&&confirmpass.length()>0&&password.equals(confirmpass)){
-            Finals_enrollment.username1.add(sr_username.getText());
-            Finals_enrollment.password1.add(sr_password.getText());
-            JOptionPane.showMessageDialog(null, "New Account Registered!");   
-            sr_password.setText("");
-            sr_conpass.setText("");
+        if (name.length() < 3) {
+            JOptionPane.showMessageDialog(null, "Name must be at least 3 letters long.");
             sr_name.setText("");
-            sr_username.setText("");
-       
-      
-        }else if (!password.equals(confirmpass)){
-            Finals_enrollment.username1.add(sr_username.getText());
-            Finals_enrollment.password1.add(sr_password.getText());
-            JOptionPane.showMessageDialog(null, "Please confirm the password again");
-            
-            sr_conpass.setText("");
+            return;
         }
-        else{
-            JOptionPane.showMessageDialog(null, "TRY AGAIN!");  
-            sr_password.setText("");
-            sr_conpass.setText("");
-            sr_name.setText("");
+
+        if (!isValidInput(username)) {
+            JOptionPane.showMessageDialog(null, "Username must be at least 5 characters long and include an uppercase letter, a number, and a special character.");
             sr_username.setText("");
-                }
+            return;
+        }
+
+        if (!isValidInput(password)) {
+            JOptionPane.showMessageDialog(null, "Password must be at least 5 characters long and include an uppercase letter, a number, and a special character.");
+            sr_password.setText("");
+            return;
+        }
+
+        if (!isValidInput(confirmpass)) {
+            JOptionPane.showMessageDialog(null,"Wrong Password");
+            sr_conpass.setText("");            
+            return;
+            
+        }
+
+        if (!password.equals(confirmpass)) {
+            JOptionPane.showMessageDialog(null, "Passwords do not match. Please confirm the password again.");
+            sr_conpass.setText("");
+            return;
+        }
+
+        Finals_enrollment.username.add(username);
+        Finals_enrollment.password.add(password);
+        JOptionPane.showMessageDialog(null, "New Account Registered!");
+
+        sr_password.setText("");
+        sr_conpass.setText("");
+        sr_name.setText("");
+        sr_username.setText("");
+        
+              
     }//GEN-LAST:event_sr_saveActionPerformed
 
     private void sr_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sr_clearActionPerformed
