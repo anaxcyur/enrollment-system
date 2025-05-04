@@ -5,6 +5,7 @@
 package com.mycompany.finals_enrollment;
 
 import java.util.ArrayList;
+import javax.swing.Timer;
 
 /**
  *
@@ -20,6 +21,13 @@ public class Finals_enrollment {
     public static ArrayList<String> username1 = new ArrayList<String>();
     public static ArrayList<String> password1 = new ArrayList<String>();
     
+    //ATTEMPTS & TIMER
+    public static int adminAttempts = 3;
+    public static Timer adminTimer;
+    public static int studentAttempts = 3;
+    public static Timer studentTimer;
+    public static int professorAttempts = 3;
+    public static Timer professorTimer;
     
     
      

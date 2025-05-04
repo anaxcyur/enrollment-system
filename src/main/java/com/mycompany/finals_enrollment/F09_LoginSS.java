@@ -5,7 +5,10 @@
 package com.mycompany.finals_enrollment;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 /**
  *
@@ -134,52 +137,166 @@ String pass = login_password.getText();
 switch (Finals_enrollment.previousFrame) {
     case "StudentLogin" -> {
         int a = Finals_enrollment.username1.size();
-        int i;
+        if (uname.isEmpty() || pass.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Please enter both username and password.");
+        return;
+    }
 
-        if (Finals_enrollment.username1.contains(uname)) {
-            for (i = 0; i < a;) {
-                if (!uname.equals(Finals_enrollment.username1.get(i))) {
-                    i++;
-                } else {
+    if (Finals_enrollment.studentAttempts == 0) {
+        JOptionPane.showMessageDialog(null, "Too many failed attempts. Access locked.");
+        login_enter.setEnabled(false);
+        login_username.setEnabled(false);
+        login_password.setEnabled(false);
+
+        Finals_enrollment.studentTimer = new Timer(10000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Finals_enrollment.studentAttempts = 3; 
+                login_enter.setEnabled(true);
+                login_username.setEnabled(true);
+                login_password.setEnabled(true);
+                login_username.setText("");
+                login_password.setText("");
+                JOptionPane.showMessageDialog(null, "You can try logging in again.");
+                Finals_enrollment.studentTimer.stop();
+            }
+        });
+
+                Finals_enrollment.studentTimer.setRepeats(false);
+                Finals_enrollment.studentTimer.start();
+                return;
+            }
+
+            boolean found = false;
+
+            for (int i = 0; i < a; i++) {
+                if (uname.equals(Finals_enrollment.username1.get(i))) {
+                    found = true;
                     if (!pass.equals(Finals_enrollment.password1.get(i))) {
-                        JOptionPane.showMessageDialog(null, "Incorrect password for " + uname);
+                        Finals_enrollment.studentAttempts--;
+                        JOptionPane.showMessageDialog(null, "Incorrect password for " + uname + ". Attempts left: " + Finals_enrollment.studentAttempts);
                         login_password.setText("");
-                        break;
                     } else {
                         JOptionPane.showMessageDialog(null, "LOGIN SUCCESSFUL!");
                         new F10_StudentPortal().setVisible(true);
                         this.setVisible(false);
-                        break;
                     }
+                    return;
                 }
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Username doesn't exist!");
-            login_username.setText("");
-        }
+
+            if (!found) {
+                Finals_enrollment.studentAttempts--;
+                JOptionPane.showMessageDialog(null, "Username doesn't exist! Attempts left: " + Finals_enrollment.studentAttempts);
+                login_username.setText("");
+                login_password.setText("");
+            }
+
+            if (Finals_enrollment.studentAttempts <= 0) {
+                JOptionPane.showMessageDialog(null, "Too many failed attempts. Access locked.");
+                login_enter.setEnabled(false);
+                login_username.setEnabled(false);
+                login_password.setEnabled(false);
+
+                Finals_enrollment.studentTimer = new Timer(10000, new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        Finals_enrollment.studentAttempts = 3;
+                        login_enter.setEnabled(true);
+                        login_username.setEnabled(true);
+                        login_password.setEnabled(true);
+                        login_username.setText("");
+                        login_password.setText("");
+                        JOptionPane.showMessageDialog(null, "You can try logging in again.");
+                        Finals_enrollment.studentTimer.stop();
+                    }
+                });
+
+                Finals_enrollment.studentTimer.setRepeats(false);
+                Finals_enrollment.studentTimer.start();
+            } 
     }
 
     case "ProfessorLogin" -> {
         int a = Finals_enrollment.username.size();
-        int i;
+        
+        if (uname.isEmpty() || pass.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Please enter both username and password.");
+        return;
+}
 
-        if (Finals_enrollment.username.contains(uname)) {
-            for (i = 0; i < a;) {
-                if (!uname.equals(Finals_enrollment.username.get(i))) {
-                    i++;
-                } else {
+        if (Finals_enrollment.professorAttempts == 0) {
+            JOptionPane.showMessageDialog(null, "Too many failed attempts. Access locked.");
+            login_enter.setEnabled(false);
+            login_username.setEnabled(false);
+            login_password.setEnabled(false);
+
+        Finals_enrollment.professorTimer = new Timer(10000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Finals_enrollment.professorAttempts = 3; 
+                login_enter.setEnabled(true);
+                login_username.setEnabled(true);
+                login_password.setEnabled(true);
+                login_username.setText("");
+                login_password.setText("");
+                JOptionPane.showMessageDialog(null, "You can try logging in again.");
+                Finals_enrollment.professorTimer.stop();
+            }
+        });
+
+                Finals_enrollment.professorTimer.setRepeats(false);
+                Finals_enrollment.professorTimer.start();
+                return;
+            }
+
+            boolean found = false;
+            for (int i = 0; i < a; i++) {
+                if (uname.equals(Finals_enrollment.username.get(i))) {
+                    found = true;
                     if (!pass.equals(Finals_enrollment.password.get(i))) {
-                        JOptionPane.showMessageDialog(null, "Incorrect password for " + uname);
+                        Finals_enrollment.professorAttempts--;
+                        JOptionPane.showMessageDialog(null, "Incorrect password for " + uname + ". Attempts left: " + Finals_enrollment.professorAttempts);
                         login_password.setText("");
-                        break;
                     } else {
                         JOptionPane.showMessageDialog(null, "LOGIN SUCCESSFUL!");
-                        new F12_ProfessorPortal().setVisible(true);
+                        new F10_StudentPortal().setVisible(true);
                         this.setVisible(false);
-                        break;
                     }
+                    return;
                 }
             }
+
+            if (!found) {
+                Finals_enrollment.professorAttempts--;
+                JOptionPane.showMessageDialog(null, "Username doesn't exist! Attempts left: " + Finals_enrollment.professorAttempts);
+                login_username.setText("");
+                login_password.setText("");
+            }
+
+            if (Finals_enrollment.professorAttempts <= 0) {
+                JOptionPane.showMessageDialog(null, "Too many failed attempts. Access locked.");
+                login_enter.setEnabled(false);
+                login_username.setEnabled(false);
+                login_password.setEnabled(false);
+
+                Finals_enrollment.professorTimer = new Timer(10000, new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        Finals_enrollment.professorAttempts = 3;
+                        login_enter.setEnabled(true);
+                        login_username.setEnabled(true);
+                        login_password.setEnabled(true);
+                        login_username.setText("");
+                        login_password.setText("");
+                        JOptionPane.showMessageDialog(null, "You can try logging in again.");
+                        Finals_enrollment.professorTimer.stop();
+                    }
+            });
+
+            Finals_enrollment.professorTimer.setRepeats(false);
+            Finals_enrollment.professorTimer.start();
+        
         } else {
             JOptionPane.showMessageDialog(null, "Username doesn't exist!");
             login_username.setText("");
