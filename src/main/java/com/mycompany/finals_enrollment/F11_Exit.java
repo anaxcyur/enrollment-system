@@ -84,6 +84,12 @@ public class F11_Exit extends javax.swing.JFrame {
         }else if (Finals_enrollment.previousFrame.equals("AdminPortalExit")) {
                 new F01_Homepage().setVisible(true);
                 this.setVisible(false);
+        }else if (Finals_enrollment.previousFrame.equals("ExitManagement")) {
+                new F01_Homepage().setVisible(true);
+                this.setVisible(false);
+        }else if (Finals_enrollment.previousFrame.equals("StudentPortalExit")) {
+                new F01_Homepage().setVisible(true);
+                this.setVisible(false);
         }
     }//GEN-LAST:event_exit_yesActionPerformed
 
@@ -99,6 +105,12 @@ public class F11_Exit extends javax.swing.JFrame {
                 this.setVisible(false);
         }else if (Finals_enrollment.previousFrame.equals("AdminPortalExit")) {
                 new F14_AdminPortal().setVisible(true);
+                this.setVisible(false);
+        }else if (Finals_enrollment.previousFrame.equals("ExitManagement")) {
+                new F15_Management().setVisible(true);
+                this.setVisible(false);
+        }else if (Finals_enrollment.previousFrame.equals("StudentPortalExit")) {
+                new F10_StudentPortal().setVisible(true);
                 this.setVisible(false);
         }
     }//GEN-LAST:event_exit_noActionPerformed

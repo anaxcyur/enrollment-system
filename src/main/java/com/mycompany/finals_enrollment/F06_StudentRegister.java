@@ -185,8 +185,8 @@ public class F06_StudentRegister extends javax.swing.JFrame {
             return;
         }
 
-        if (!isValidInput(username)) {
-            JOptionPane.showMessageDialog(null, "Username must be at least 5 characters long and include an uppercase letter, a number, and a special character.");
+        if (username.length()<5) {
+            JOptionPane.showMessageDialog(null, "Username must be at least 5 characters long");
             sr_username.setText("");
             return;
         }
@@ -210,9 +210,13 @@ public class F06_StudentRegister extends javax.swing.JFrame {
             return;
         }
 
-        Finals_enrollment.username.add(username);
-        Finals_enrollment.password.add(password);
+        Finals_enrollment.username1.add(username);
+        Finals_enrollment.password1.add(password);
+        Finals_enrollment.name1.add(name);
         JOptionPane.showMessageDialog(null, "New Account Registered!");
+       
+       // F15_Management FULLD = new F15_ManagementS();
+         //   FULLD.AddRowToJTable(new Object[]{pid + "%%" + code + "%%" + pri + "%%" + ty + "%%" + br + "%%" + qn + "%%" + mo +"%%" + des });
 
         sr_password.setText("");
         sr_conpass.setText("");

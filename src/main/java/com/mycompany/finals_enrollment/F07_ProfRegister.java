@@ -93,6 +93,11 @@ public class F07_ProfRegister extends javax.swing.JFrame {
 
         prof_name.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         prof_name.setBorder(null);
+        prof_name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prof_nameActionPerformed(evt);
+            }
+        });
         jPanel1.add(prof_name);
         prof_name.setBounds(370, 222, 200, 30);
 
@@ -190,6 +195,7 @@ public class F07_ProfRegister extends javax.swing.JFrame {
 
         Finals_enrollment.username.add(username);
         Finals_enrollment.password.add(password);
+        Finals_enrollment.name1.add(name);
         JOptionPane.showMessageDialog(null, "New Account Registered!");
 
         prof_pass.setText("");
@@ -211,6 +217,10 @@ public class F07_ProfRegister extends javax.swing.JFrame {
         new F08_Back().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_prof_backActionPerformed
+
+    private void prof_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prof_nameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_prof_nameActionPerformed
 
     /**
      * @param args the command line arguments

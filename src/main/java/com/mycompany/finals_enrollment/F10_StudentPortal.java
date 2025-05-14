@@ -33,7 +33,8 @@ public class F10_StudentPortal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(920, 580));
+        setMinimumSize(new java.awt.Dimension(900, 550));
+        setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);
@@ -46,9 +47,9 @@ public class F10_StudentPortal extends javax.swing.JFrame {
             }
         });
         jPanel1.add(sp_exit);
-        sp_exit.setBounds(780, 490, 60, 30);
+        sp_exit.setBounds(790, 500, 80, 30);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/studentportal.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student portal.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 900, 550);
 

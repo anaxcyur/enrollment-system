@@ -89,7 +89,10 @@ public class F08_Back extends javax.swing.JFrame {
         }else if (Finals_enrollment.previousFrame.equals("AdminBack")) {
                 new F02_AdminLogin().setVisible(true);
                 this.setVisible(false);
-        }            
+        }else if (Finals_enrollment.previousFrame.equals("BackManagement")) {
+                new F14_AdminPortal().setVisible(true);
+                this.setVisible(false);  
+        }
     }//GEN-LAST:event_backyesActionPerformed
 
     private void backnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backnoActionPerformed
@@ -113,6 +116,9 @@ public class F08_Back extends javax.swing.JFrame {
                 this.setVisible(false);
         }else if (Finals_enrollment.previousFrame.equals("AdminBack")) {
                 new F03_AdminRegister().setVisible(true);
+                this.setVisible(false);
+        }else if (Finals_enrollment.previousFrame.equals("BackManagement")) {
+                new F15_Management().setVisible(true);
                 this.setVisible(false);
         }
     }//GEN-LAST:event_backnoActionPerformed

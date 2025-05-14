@@ -141,7 +141,7 @@ public class F09_LoginSS extends javax.swing.JFrame {
 
     private void login_enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_enterActionPerformed
         String uname = login_username.getText();
-String pass = login_password.getText();
+        String pass = login_password.getText();
 
 switch (Finals_enrollment.previousFrame) {
     case "StudentLogin" -> {

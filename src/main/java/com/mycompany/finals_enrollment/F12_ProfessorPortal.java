@@ -34,6 +34,7 @@ public class F12_ProfessorPortal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(920, 580));
+        setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);
@@ -48,7 +49,7 @@ public class F12_ProfessorPortal extends javax.swing.JFrame {
         jPanel1.add(prof_exit);
         prof_exit.setBounds(770, 490, 80, 40);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/professorportal.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prof portal.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 900, 550);
 

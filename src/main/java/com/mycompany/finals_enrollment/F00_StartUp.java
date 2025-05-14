@@ -75,8 +75,8 @@ public class F00_StartUp extends javax.swing.JFrame {
     }//GEN-LAST:event_startupbuttonActionPerformed
 
     private void signupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupActionPerformed
-        new F15_SignUp().setVisible(true);
-        this.setVisible(false);
+       // new F15_SignUp().setVisible(true);
+        //this.setVisible(false);
     }//GEN-LAST:event_signupActionPerformed
 
     /**
