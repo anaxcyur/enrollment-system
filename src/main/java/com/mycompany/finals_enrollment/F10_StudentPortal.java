@@ -30,6 +30,7 @@ public class F10_StudentPortal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         sp_exit = new javax.swing.JButton();
+        enrollment = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -49,6 +50,16 @@ public class F10_StudentPortal extends javax.swing.JFrame {
         jPanel1.add(sp_exit);
         sp_exit.setBounds(790, 500, 80, 30);
 
+        enrollment.setBorderPainted(false);
+        enrollment.setContentAreaFilled(false);
+        enrollment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enrollmentActionPerformed(evt);
+            }
+        });
+        jPanel1.add(enrollment);
+        enrollment.setBounds(240, 200, 180, 130);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student portal.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 900, 550);
@@ -64,6 +75,11 @@ public class F10_StudentPortal extends javax.swing.JFrame {
         new F11_Exit().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_sp_exitActionPerformed
+
+    private void enrollmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enrollmentActionPerformed
+        new F16_OnlineEnrollment().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_enrollmentActionPerformed
 
     /**
      * @param args the command line arguments
@@ -101,6 +117,7 @@ public class F10_StudentPortal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton enrollment;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton sp_exit;

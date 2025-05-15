@@ -37,7 +37,24 @@ public class F06_StudentRegister extends javax.swing.JFrame {
         sr_username.addActionListener(sharedLoginListener);
         sr_password.addActionListener(sharedLoginListener);
         sr_conpass.addActionListener(sharedLoginListener);
+        
+        
     }
+    public String capitalizeWords(String input) {
+        String[] words = input.trim().toLowerCase().split("\\s+");
+        StringBuilder sb = new StringBuilder();
+
+        for (String word : words) {
+            if (word.length() > 0) {
+                sb.append(Character.toUpperCase(word.charAt(0)))
+                  .append(word.substring(1))
+                  .append(" ");
+            }
+        }
+        
+
+    return sb.toString().trim(); // remove the trailing space
+}
         private boolean isValidInput(String input) {
             if (input.length() < 5) return false;
 
@@ -174,7 +191,10 @@ public class F06_StudentRegister extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void sr_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sr_saveActionPerformed
-        String name = sr_name.getText();
+         String name = sr_name.getText();
+        name = capitalizeWords(name);  
+        sr_name.setText(name);
+    
         String username = sr_username.getText();
         String password = sr_password.getText();
         String confirmpass = sr_conpass.getText();
@@ -215,8 +235,6 @@ public class F06_StudentRegister extends javax.swing.JFrame {
         Finals_enrollment.name1.add(name);
         JOptionPane.showMessageDialog(null, "New Account Registered!");
        
-       // F15_Management FULLD = new F15_ManagementS();
-         //   FULLD.AddRowToJTable(new Object[]{pid + "%%" + code + "%%" + pri + "%%" + ty + "%%" + br + "%%" + qn + "%%" + mo +"%%" + des });
 
         sr_password.setText("");
         sr_conpass.setText("");

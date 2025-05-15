@@ -90,6 +90,9 @@ public class F11_Exit extends javax.swing.JFrame {
         }else if (Finals_enrollment.previousFrame.equals("StudentPortalExit")) {
                 new F01_Homepage().setVisible(true);
                 this.setVisible(false);
+        }else if (Finals_enrollment.previousFrame.equals("EnrollmentExit")) {
+                new F01_Homepage().setVisible(true);
+                this.setVisible(false);
         }
     }//GEN-LAST:event_exit_yesActionPerformed
 
@@ -111,6 +114,9 @@ public class F11_Exit extends javax.swing.JFrame {
                 this.setVisible(false);
         }else if (Finals_enrollment.previousFrame.equals("StudentPortalExit")) {
                 new F10_StudentPortal().setVisible(true);
+                this.setVisible(false);
+        }else if (Finals_enrollment.previousFrame.equals("EnrollmentExit")) {
+                new F16_OnlineEnrollment().setVisible(true);
                 this.setVisible(false);
         }
     }//GEN-LAST:event_exit_noActionPerformed

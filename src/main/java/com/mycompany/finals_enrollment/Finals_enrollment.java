@@ -23,6 +23,7 @@ public class Finals_enrollment {
     public static ArrayList<String> name1 = new ArrayList<String>();
     public static ArrayList<String> password1 = new ArrayList<String>();
     
+    
     //ATTEMPTS & TIMER
     public static int adminAttempts = 3;
     public static Timer adminTimer;
@@ -38,6 +39,8 @@ public class Finals_enrollment {
   
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        username1.add("yurinakawaguchi");
+        name1.add("Yurina Kawaguchi");
+        password1.add("Kawaguchi_1");
     }
 }
