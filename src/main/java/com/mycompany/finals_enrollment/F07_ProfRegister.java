@@ -29,32 +29,53 @@ public class F07_ProfRegister extends javax.swing.JFrame {
         prof_pass.setBackground(new Color(0, 0, 0, 0));
         prof_conpass.setBackground(new Color(0, 0, 0, 0));
         
+        
+        
+        
+        
+        
         ActionListener sharedLoginListener = new ActionListener() {
         public void actionPerformed(ActionEvent evt) {
             prof_enterActionPerformed(evt);
         }
     };
-        
 
         prof_name.addActionListener(sharedLoginListener);
         prof_username.addActionListener(sharedLoginListener);
         prof_pass.addActionListener(sharedLoginListener);
         prof_conpass.addActionListener(sharedLoginListener);
+        
+        
     }
-        private boolean isValidInput(String input) {
-        if (input.length() < 5) return false;
+    public String capitalizeWords(String input) {
+        String[] words = input.trim().toLowerCase().split("\\s+");
+        StringBuilder sb = new StringBuilder();
 
-        boolean hasUpper = false;
-        boolean hasDigit = false;
-        boolean hasSpecial = false;
-
-        for (char ch : input.toCharArray()) {
-            if (Character.isUpperCase(ch)) hasUpper = true;
-            else if (Character.isDigit(ch)) hasDigit = true;
-            else if (!Character.isLetterOrDigit(ch)) hasSpecial = true;
+        for (String word : words) {
+            if (word.length() > 0) {
+                sb.append(Character.toUpperCase(word.charAt(0)))
+                  .append(word.substring(1))
+                  .append(" ");
+            }
         }
+        
 
-        return hasUpper && hasDigit && hasSpecial;
+    return sb.toString().trim(); // remove the trailing space
+}
+        private boolean isValidInput(String input) {
+            if (input.length() < 5) return false;
+
+            boolean hasUpper = false;
+            boolean hasDigit = false;
+            boolean hasSpecial = false;
+
+            for (char ch : input.toCharArray()) {
+                if (Character.isUpperCase(ch)) hasUpper = true;
+                else if (Character.isDigit(ch)) hasDigit = true;
+                else if (!Character.isLetterOrDigit(ch)) hasSpecial = true;
+            }
+
+            return hasUpper && hasDigit && hasSpecial;
 }
 
 
@@ -113,11 +134,21 @@ public class F07_ProfRegister extends javax.swing.JFrame {
 
         unhide.setBorderPainted(false);
         unhide.setContentAreaFilled(false);
+        unhide.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unhideActionPerformed(evt);
+            }
+        });
         jPanel1.add(unhide);
         unhide.setBounds(590, 310, 30, 20);
 
         unhide1.setBorderPainted(false);
         unhide1.setContentAreaFilled(false);
+        unhide1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unhide1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(unhide1);
         unhide1.setBounds(590, 360, 30, 20);
 
@@ -163,28 +194,36 @@ public class F07_ProfRegister extends javax.swing.JFrame {
 
     private void prof_enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prof_enterActionPerformed
         String name = prof_name.getText();
+        name = capitalizeWords(name);  
+        prof_name.setText(name);
+    
         String username = prof_username.getText();
         String password = prof_pass.getText();
         String confirmpass = prof_conpass.getText();
-
+        
         if (name.length() < 3) {
             JOptionPane.showMessageDialog(null, "Name must be at least 3 letters long.");
+            prof_name.setText("");
             return;
         }
 
-        if (!isValidInput(username)) {
-            JOptionPane.showMessageDialog(null, "Username must be at least 5 characters long and include an uppercase letter, a number, and a special character.");
+        if (username.length()<5) {
+            JOptionPane.showMessageDialog(null, "Username must be at least 5 characters long");
+            prof_pass.setText("");
             return;
         }
 
         if (!isValidInput(password)) {
             JOptionPane.showMessageDialog(null, "Password must be at least 5 characters long and include an uppercase letter, a number, and a special character.");
+            prof_pass.setText("");
             return;
         }
 
         if (!isValidInput(confirmpass)) {
-            JOptionPane.showMessageDialog(null, "Confirm Password must be at least 5 characters long and include an uppercase letter, a number, and a special character.");
+            JOptionPane.showMessageDialog(null,"Wrong Password");
+            prof_conpass.setText("");            
             return;
+            
         }
 
         if (!password.equals(confirmpass)) {
@@ -195,13 +234,15 @@ public class F07_ProfRegister extends javax.swing.JFrame {
 
         Finals_enrollment.username.add(username);
         Finals_enrollment.password.add(password);
-        Finals_enrollment.name1.add(name);
+        Finals_enrollment.name.add(name);
         JOptionPane.showMessageDialog(null, "New Account Registered!");
+       
 
-        prof_pass.setText("");
-        prof_conpass.setText("");
         prof_name.setText("");
         prof_username.setText("");
+        prof_pass.setText("");
+        prof_conpass.setText("");
+        
 
     }//GEN-LAST:event_prof_enterActionPerformed
 
@@ -221,6 +262,24 @@ public class F07_ProfRegister extends javax.swing.JFrame {
     private void prof_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prof_nameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_prof_nameActionPerformed
+
+    private void unhideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unhideActionPerformed
+         if (prof_pass.getEchoChar() == '*') {  
+             prof_pass.setEchoChar((char) 0);  
+    } 
+        else {
+            prof_pass.setEchoChar('*'); 
+         }   
+    }//GEN-LAST:event_unhideActionPerformed
+
+    private void unhide1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unhide1ActionPerformed
+        if (prof_conpass.getEchoChar() == '*') {  
+             prof_conpass.setEchoChar((char) 0);  
+    } 
+        else {
+            prof_conpass.setEchoChar('*'); 
+         }
+    }//GEN-LAST:event_unhide1ActionPerformed
 
     /**
      * @param args the command line arguments

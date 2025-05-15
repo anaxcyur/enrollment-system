@@ -5,6 +5,8 @@
 package com.mycompany.finals_enrollment;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -42,50 +44,182 @@ public class F16_OnlineEnrollment extends javax.swing.JFrame {
     String Year = (String) year.getSelectedItem();
     String Course = (String) course.getSelectedItem();
     String Term = (String) term.getSelectedItem();
-
+    Finals_enrollment subj = new Finals_enrollment();
+    
+    //subjects.setLineWrap(true);
+    //subjects.setWrapStyleWord(true);
     if (Year == null || Course == null || Term == null) return;
 
     if ("BS Information Technology".equals(Course)) {
-        if ("1st".equals(Year)) {
-            section.addItem("401IT");
-            section.addItem("402IT");
-        } else if ("2nd".equals(Year)) {
-            section.addItem("301IT");
-            section.addItem("302IT");
-        } else if ("3rd".equals(Year)) {
-            section.addItem("201IT");
-            section.addItem("202IT");
-        } else if ("4th".equals(Year)) {
-            section.addItem("101IT");
-            section.addItem("102IT");
+        switch (Year) {
+            case "1st":
+                section.addItem("401IT");
+                section.addItem("402IT");
+                if ("1st".equals(Term)){
+                    
+                    String IT11 = String.join("\n", subj.BSIT_1_1);
+                    subjects.setText(IT11);
+                }
+                else if ("2nd".equals(Term)){
+                    String IT12 = String.join("\n", subj.BSIT_1_2);
+                    subjects.setText(IT12);
+                }
+                break;
+            case "2nd":
+                section.addItem("301IT");
+                section.addItem("302IT");
+                if ("1st".equals(Term)){
+                    
+                    String IT21 = String.join("\n", subj.BSIT_2_1);
+                    subjects.setText(IT21);
+                }
+                else if ("2nd".equals(Term)){
+                    String IT22 = String.join("\n", subj.BSIT_2_2);
+                    subjects.setText(IT22);
+                }
+                break;
+            case "3rd":
+                section.addItem("201IT");
+                section.addItem("202IT");
+                if ("1st".equals(Term)){
+                    
+                    String IT31 = String.join("\n", subj.BSIT_3_1);
+                    subjects.setText(IT31);
+                }
+                else if ("2nd".equals(Term)){
+                    String IT32 = String.join("\n", subj.BSIT_3_2);
+                    subjects.setText(IT32);
+                }
+                break;
+            case "4th":
+                section.addItem("101IT");
+                section.addItem("102IT");
+                if ("1st".equals(Term)){
+                    
+                    String IT41 = String.join("\n", subj.BSIT_4_1);
+                    subjects.setText(IT41);
+                }
+                else if ("2nd".equals(Term)){
+                    String IT42 = String.join("\n", subj.BSIT_4_2);
+                    subjects.setText(IT42);
+                }
+                break;
+            default:
+                break;
         }
     } else if ("BS Psychology".equals(Course)) {
-        if ("1st".equals(Year)) {
-            section.addItem("401PS");
-            section.addItem("402PS");
-        } else if ("2nd".equals(Year)) {
-            section.addItem("301PS");
-            section.addItem("302PS");
-        } else if ("3rd".equals(Year)) {
-            section.addItem("201PS");
-            section.addItem("202PS");
-        } else if ("4th".equals(Year)) {
-            section.addItem("101PS");
-            section.addItem("102PS");
+        switch (Year) {
+            case "1st":
+                section.addItem("401PS");
+                section.addItem("402PS");
+                if ("1st".equals(Term)){
+                    
+                    String PS11 = String.join("\n", subj.PSYCH_1_1  );
+                    subjects.setText(PS11);
+                }
+                else if ("2nd".equals(Term)){
+                    String PS12 = String.join("\n", subj.PSYCH_1_2);
+                    subjects.setText(PS12);
+                }
+                break;
+            case "2nd":
+                section.addItem("301PS");
+                section.addItem("302PS");
+                if ("1st".equals(Term)){
+                    
+                    String PS21 = String.join("\n", subj.PSYCH_2_1  );
+                    subjects.setText(PS21);
+                }
+                else if ("2nd".equals(Term)){
+                    String PS22 = String.join("\n", subj.PSYCH_2_2);
+                    subjects.setText(PS22);
+                }
+                break;
+            case "3rd":
+                section.addItem("201PS");
+                section.addItem("202PS");
+                if ("1st".equals(Term)){
+                    
+                    String PS31 = String.join("\n", subj.PSYCH_3_1  );
+                    subjects.setText(PS31);
+                }
+                else if ("2nd".equals(Term)){
+                    String PS32 = String.join("\n", subj.PSYCH_3_2);
+                    subjects.setText(PS32);
+                }
+                break;
+            case "4th":
+                section.addItem("101PS");
+                section.addItem("102PS");
+                if ("1st".equals(Term)){
+                    
+                    String PS41 = String.join("\n", subj.PSYCH_4_1  );
+                    subjects.setText(PS41);
+                }
+                else if ("2nd".equals(Term)){
+                    String PS42 = String.join("\n", subj.PSYCH_4_2);
+                    subjects.setText(PS42);
+                }
+                break;
+            default:
+                break;
         }
     } else if ("BS Nursing".equals(Course)) {
-        if ("1st".equals(Year)) {
-            section.addItem("401NS");
-            section.addItem("402NS");
-        } else if ("2nd".equals(Year)) {
-            section.addItem("301NS");
-            section.addItem("302NS");
-        } else if ("3rd".equals(Year)) {
-            section.addItem("201NS");
-            section.addItem("202NS");
-        } else if ("4th".equals(Year)) {
-            section.addItem("101NS");
-            section.addItem("102NS");
+        switch (Year) {
+            case "1st":
+                section.addItem("401NS");
+                section.addItem("402NS");
+                if ("1st".equals(Term)){
+                    
+                    String BSN11 = String.join("\n", subj.BSN_1_1  );
+                    subjects.setText(BSN11);
+                }
+                else if ("2nd".equals(Term)){
+                    String BSN12 = String.join("\n", subj.BSN_1_2);
+                    subjects.setText(BSN12);
+                }
+                break;
+            case "2nd":
+                section.addItem("301NS");
+                section.addItem("302NS");
+                if ("1st".equals(Term)){
+                    
+                    String BSN21 = String.join("\n", subj.BSN_2_1  );
+                    subjects.setText(BSN21);
+                }
+                else if ("2nd".equals(Term)){
+                    String BSN22 = String.join("\n", subj.BSN_2_2);
+                    subjects.setText(BSN22);
+                }
+                break;
+            case "3rd":
+                section.addItem("201NS");
+                section.addItem("202NS");
+                if ("1st".equals(Term)){
+                    
+                    String BSN31 = String.join("\n", subj.BSN_3_1  );
+                    subjects.setText(BSN31);
+                }
+                else if ("2nd".equals(Term)){
+                    String BSN32 = String.join("\n", subj.BSN_3_2);
+                    subjects.setText(BSN32);
+                }
+                break;
+            case "4th":
+                section.addItem("101NS");
+                section.addItem("102NS");
+                if ("1st".equals(Term)){
+                    
+                    String BSN41 = String.join("\n", subj.BSN_4_1  );
+                    subjects.setText(BSN41);
+                }
+                else if ("2nd".equals(Term)){
+                    String BSN42 = String.join("\n", subj.BSN_4_2);
+                    subjects.setText(BSN42);
+                }
+                break;
+            default:
+                break;
         }
     }
 }
@@ -109,6 +243,9 @@ public class F16_OnlineEnrollment extends javax.swing.JFrame {
         studentname = new javax.swing.JTextField();
         logout = new javax.swing.JButton();
         back = new javax.swing.JButton();
+        enrollbutton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        subjects = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -169,7 +306,28 @@ public class F16_OnlineEnrollment extends javax.swing.JFrame {
         jPanel1.add(back);
         back.setBounds(30, 500, 80, 30);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ENROLL.png"))); // NOI18N
+        enrollbutton.setBackground(new java.awt.Color(102, 255, 102));
+        enrollbutton.setForeground(new java.awt.Color(102, 102, 102));
+        enrollbutton.setText("Enroll");
+        enrollbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enrollbuttonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(enrollbutton);
+        enrollbutton.setBounds(670, 440, 75, 30);
+
+        subjects.setBackground(new java.awt.Color(255, 255, 255));
+        subjects.setColumns(20);
+        subjects.setForeground(new java.awt.Color(0, 0, 0));
+        subjects.setRows(5);
+        subjects.setBorder(null);
+        jScrollPane1.setViewportView(subjects);
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(540, 180, 320, 280);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ENROLMI.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 900, 550);
 
@@ -188,6 +346,24 @@ public class F16_OnlineEnrollment extends javax.swing.JFrame {
         new F11_Exit().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_logoutActionPerformed
+
+    private void enrollbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enrollbuttonActionPerformed
+         String selectedCourse = (String) course.getSelectedItem();
+    String selectedYear = (String) year.getSelectedItem();
+    String selectedTerm = (String) term.getSelectedItem();
+    String selectedSection = (String) section.getSelectedItem();
+    
+    // Prepare the enrollment details
+    String enrollmentDetails = """
+                               Enrollment Details:
+                               Student Name: """ + studentname.getText() + "\n" +
+                               "Course: " + selectedCourse + "\n" +
+                               "Year: " + selectedYear + "\n" +
+                               "Term: " + selectedTerm + "\n" +
+                               "Section: " + selectedSection;
+    // Display the enrollment details (you can also save it to a file or database)
+    JOptionPane.showMessageDialog(this, enrollmentDetails, "Enrollment Confirmation", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_enrollbuttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,11 +403,14 @@ public class F16_OnlineEnrollment extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton back;
     private javax.swing.JComboBox<String> course;
+    private javax.swing.JButton enrollbutton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton logout;
     private javax.swing.JComboBox<String> section;
     private javax.swing.JTextField studentname;
+    private javax.swing.JTextArea subjects;
     private javax.swing.JComboBox<String> term;
     private javax.swing.JComboBox<String> year;
     // End of variables declaration//GEN-END:variables

@@ -29,11 +29,13 @@ public class F14_AdminPortal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         admin_exit = new javax.swing.JButton();
+        management1 = new javax.swing.JButton();
         management = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(920, 580));
+        setMinimumSize(new java.awt.Dimension(900, 550));
+        setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);
@@ -48,6 +50,16 @@ public class F14_AdminPortal extends javax.swing.JFrame {
         jPanel1.add(admin_exit);
         admin_exit.setBounds(800, 500, 70, 30);
 
+        management1.setBorderPainted(false);
+        management1.setContentAreaFilled(false);
+        management1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                management1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(management1);
+        management1.setBounds(260, 410, 190, 130);
+
         management.setBorderPainted(false);
         management.setContentAreaFilled(false);
         management.addActionListener(new java.awt.event.ActionListener() {
@@ -58,7 +70,7 @@ public class F14_AdminPortal extends javax.swing.JFrame {
         jPanel1.add(management);
         management.setBounds(130, 263, 190, 130);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ADMIN PORTAL (2).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admin po.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 900, 550);
 
@@ -76,9 +88,14 @@ public class F14_AdminPortal extends javax.swing.JFrame {
     }//GEN-LAST:event_admin_exitActionPerformed
 
     private void managementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managementActionPerformed
-       new F15_Management().setVisible(true);
+       new F15_StudentManagement().setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_managementActionPerformed
+
+    private void management1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_management1ActionPerformed
+       new F15_ProfessorManagement().setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_management1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -120,5 +137,6 @@ public class F14_AdminPortal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton management;
+    private javax.swing.JButton management1;
     // End of variables declaration//GEN-END:variables
 }

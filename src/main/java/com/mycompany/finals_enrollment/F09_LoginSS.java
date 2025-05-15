@@ -269,7 +269,7 @@ switch (Finals_enrollment.previousFrame) {
                         login_password.setText("");
                     } else {
                         JOptionPane.showMessageDialog(null, "LOGIN SUCCESSFUL!");
-                        new F10_StudentPortal().setVisible(true);
+                        new F14_AdminPortal().setVisible(true);
                         this.setVisible(false);
                     }
                     return;

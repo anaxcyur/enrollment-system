@@ -9,18 +9,17 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-
 /**
  *
  * @author aname
  */
-public class F15_Management extends javax.swing.JFrame {
+public class F15_ProfessorManagement extends javax.swing.JFrame {
 
     /**
-     * Creates new form F15_Management
+     * Creates new form F15_ProfessorManagement
      */
-    public F15_Management() {
-        initComponents(); // Always call this first in GUI Builder classes
+    public F15_ProfessorManagement() {
+        initComponents();
         setLocationRelativeTo(null);
         loadStudentsToTable(); // Call your method after init
         name.setEnabled(false);
@@ -30,22 +29,19 @@ public class F15_Management extends javax.swing.JFrame {
         username.setBackground(new Color(0, 0, 0, 0));
         password.setBackground(new Color(0, 0, 0, 0));
     }
-
     private void loadStudentsToTable() {
-        ArrayList<String> names = Finals_enrollment.name1;
-        ArrayList<String> usernames = Finals_enrollment.username1;
-        ArrayList<String> passwords = Finals_enrollment.password1;
+        ArrayList<String> names = Finals_enrollment.name;
+        ArrayList<String> usernames = Finals_enrollment.username;
+        ArrayList<String> passwords = Finals_enrollment.password;
 
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        model.setRowCount(0); // Clear table
+        model.setRowCount(0); 
 
         for (int i = 0; i < names.size(); i++) {
             model.addRow(new Object[]{names.get(i), usernames.get(i), passwords.get(i)});
         }
     }
 
-       
-   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -58,13 +54,13 @@ public class F15_Management extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        username = new javax.swing.JTextField();
+        password = new javax.swing.JTextField();
+        name = new javax.swing.JTextField();
         save = new javax.swing.JButton();
         back = new javax.swing.JButton();
         logout = new javax.swing.JButton();
         update = new javax.swing.JButton();
-        username = new javax.swing.JTextField();
-        password = new javax.swing.JTextField();
-        name = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,11 +70,18 @@ public class F15_Management extends javax.swing.JFrame {
 
         jPanel1.setLayout(null);
 
-        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setForeground(new java.awt.Color(0, 0, 0));
-
+        jTable1.setBackground(new java.awt.Color(255, 255, 255));
+        jTable1.setForeground(new java.awt.Color(0, 0, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
                 {null, null, null},
                 {null, null, null},
                 {null, null, null},
@@ -98,9 +101,23 @@ public class F15_Management extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(420, 110, 452, 402);
+        jScrollPane1.setBounds(410, 100, 452, 402);
 
-        save.setBorder(null);
+        username.setForeground(new java.awt.Color(0, 0, 0));
+        username.setBorder(null);
+        jPanel1.add(username);
+        username.setBounds(130, 210, 190, 30);
+
+        password.setForeground(new java.awt.Color(0, 0, 0));
+        password.setBorder(null);
+        jPanel1.add(password);
+        password.setBounds(120, 260, 200, 30);
+
+        name.setForeground(new java.awt.Color(0, 0, 0));
+        name.setBorder(null);
+        jPanel1.add(name);
+        name.setBounds(100, 162, 220, 30);
+
         save.setBorderPainted(false);
         save.setContentAreaFilled(false);
         save.addActionListener(new java.awt.event.ActionListener() {
@@ -109,9 +126,8 @@ public class F15_Management extends javax.swing.JFrame {
             }
         });
         jPanel1.add(save);
-        save.setBounds(170, 320, 70, 30);
+        save.setBounds(170, 320, 72, 30);
 
-        back.setBorder(null);
         back.setBorderPainted(false);
         back.setContentAreaFilled(false);
         back.addActionListener(new java.awt.event.ActionListener() {
@@ -120,9 +136,8 @@ public class F15_Management extends javax.swing.JFrame {
             }
         });
         jPanel1.add(back);
-        back.setBounds(250, 320, 80, 30);
+        back.setBounds(250, 320, 72, 20);
 
-        logout.setBorder(null);
         logout.setBorderPainted(false);
         logout.setContentAreaFilled(false);
         logout.addActionListener(new java.awt.event.ActionListener() {
@@ -131,9 +146,8 @@ public class F15_Management extends javax.swing.JFrame {
             }
         });
         jPanel1.add(logout);
-        logout.setBounds(160, 360, 80, 30);
+        logout.setBounds(170, 360, 72, 30);
 
-        update.setBorder(null);
         update.setBorderPainted(false);
         update.setContentAreaFilled(false);
         update.addActionListener(new java.awt.event.ActionListener() {
@@ -142,13 +156,7 @@ public class F15_Management extends javax.swing.JFrame {
             }
         });
         jPanel1.add(update);
-        update.setBounds(80, 313, 80, 30);
-        jPanel1.add(username);
-        username.setBounds(130, 210, 190, 30);
-        jPanel1.add(password);
-        password.setBounds(130, 260, 200, 30);
-        jPanel1.add(name);
-        name.setBounds(100, 162, 220, 30);
+        update.setBounds(80, 320, 72, 20);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/management.png"))); // NOI18N
         jPanel1.add(jLabel1);
@@ -159,12 +167,6 @@ public class F15_Management extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-        Finals_enrollment.previousFrame=("BackManagement");
-        new F08_Back().setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_backActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         int selectedRow = jTable1.getSelectedRow(); 
@@ -181,7 +183,7 @@ public class F15_Management extends javax.swing.JFrame {
     }//GEN-LAST:event_updateActionPerformed
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-         int i = jTable1.getSelectedRow();
+        int i = jTable1.getSelectedRow();
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         
         if (i>= 0){
@@ -194,9 +196,9 @@ public class F15_Management extends javax.swing.JFrame {
             model.setValueAt(updatedUsername, i, 1);
             model.setValueAt(updatedPassword, i, 2);
             
-            Finals_enrollment.name1.set(i, updatedName);
-            Finals_enrollment.username1.set(i, updatedUsername);
-            Finals_enrollment.password1.set(i, updatedPassword);
+            Finals_enrollment.name.set(i, updatedName);
+            Finals_enrollment.username.set(i, updatedUsername);
+            Finals_enrollment.password.set(i, updatedPassword);
 
         JOptionPane.showMessageDialog(null, "Information updated successfully.");
     } else {
@@ -204,8 +206,14 @@ public class F15_Management extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_saveActionPerformed
 
+    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
+         Finals_enrollment.previousFrame=("BackManagementProf");
+        new F08_Back().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_backActionPerformed
+
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
-        Finals_enrollment.previousFrame=("ExitManagement");
+         Finals_enrollment.previousFrame=("ExitManagementProf");
         new F11_Exit().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_logoutActionPerformed
@@ -227,20 +235,20 @@ public class F15_Management extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(F15_Management.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(F15_ProfessorManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(F15_Management.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(F15_ProfessorManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(F15_Management.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(F15_ProfessorManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(F15_Management.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(F15_ProfessorManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new F15_Management().setVisible(true);
+                new F15_ProfessorManagement().setVisible(true);
             }
         });
     }
@@ -250,7 +258,7 @@ public class F15_Management extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private static javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JButton logout;
     private javax.swing.JTextField name;
     private javax.swing.JTextField password;
