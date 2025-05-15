@@ -5,6 +5,7 @@
 package com.mycompany.finals_enrollment;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
@@ -13,10 +14,16 @@ import javax.swing.JTextArea;
  * @author aname
  */
 public class F16_OnlineEnrollment extends javax.swing.JFrame {
-
-    /**
-     * Creates new form F16_OnlineEnrollment
-     */
+    private ArrayList<String> names = Finals_enrollment.name1;       
+    private ArrayList<String> courses = Finals_enrollment.course;   
+    private ArrayList<String> professors = Finals_enrollment.name;   
+    private ArrayList<String> teachCourses = Finals_enrollment.teach; 
+    private ArrayList<String> sections = Finals_enrollment.section;  
+    private ArrayList<String> years = Finals_enrollment.year;
+    private ArrayList<String> terms = Finals_enrollment.term;
+    public static ArrayList<String> assignedProfessors = new ArrayList<>();
+    
+    
     public F16_OnlineEnrollment() {
         initComponents();
         setLocationRelativeTo(null);
@@ -27,15 +34,35 @@ public class F16_OnlineEnrollment extends javax.swing.JFrame {
         course.setBackground(new Color(0, 0, 0, 0));
         
         String name = Finals_enrollment.name1.get(Finals_enrollment.name1.size() - 1);
-
         studentname.setText(name);
         
         year.addActionListener(e -> updateSections());
         course.addActionListener(e -> updateSections());
         term.addActionListener(e -> updateSections());
+        
+         if (!names.isEmpty()) {
+            studentname.setText(names.get(names.size() - 1));
+        } else {
+            studentname.setText("");
+        }
+        
+        
+    }
+    private String findProfessorByCourse(String course) {
+        for (int i = 0; i < teachCourses.size(); i++) {
+            if (teachCourses.get(i).equalsIgnoreCase(course)) {
+                return professors.get(i);
+            }
+        }
+        return "No Professor Assigned";
+    }
+     public void registerStudent(String studentName, String course, String section) {
+        names.add(studentName);
+        courses.add(course);
+        sections.add(section);
 
-        
-        
+        String professor = findProfessorByCourse(course);
+        assignedProfessors.add(professor);
     }
     
     private void updateSections() {
@@ -45,6 +72,7 @@ public class F16_OnlineEnrollment extends javax.swing.JFrame {
     String Course = (String) course.getSelectedItem();
     String Term = (String) term.getSelectedItem();
     Finals_enrollment subj = new Finals_enrollment();
+    
     
     //subjects.setLineWrap(true);
     //subjects.setWrapStyleWord(true);
@@ -222,7 +250,10 @@ public class F16_OnlineEnrollment extends javax.swing.JFrame {
                 break;
         }
     }
+          
+       
 }
+
 
     
 
@@ -264,11 +295,21 @@ public class F16_OnlineEnrollment extends javax.swing.JFrame {
         course.setForeground(new java.awt.Color(0, 0, 0));
         course.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BS Information Technology", "BS Psychology", "BS Nursing" }));
         course.setBorder(null);
+        course.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                courseActionPerformed(evt);
+            }
+        });
         jPanel1.add(course);
         course.setBounds(160, 390, 330, 40);
 
         section.setForeground(new java.awt.Color(0, 0, 0));
         section.setBorder(null);
+        section.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sectionActionPerformed(evt);
+            }
+        });
         jPanel1.add(section);
         section.setBounds(160, 340, 330, 40);
 
@@ -285,6 +326,11 @@ public class F16_OnlineEnrollment extends javax.swing.JFrame {
 
         studentname.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         studentname.setBorder(null);
+        studentname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                studentnameActionPerformed(evt);
+            }
+        });
         jPanel1.add(studentname);
         studentname.setBounds(210, 212, 290, 30);
 
@@ -338,7 +384,7 @@ public class F16_OnlineEnrollment extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void yearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_yearActionPerformed
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
@@ -348,22 +394,48 @@ public class F16_OnlineEnrollment extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutActionPerformed
 
     private void enrollbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enrollbuttonActionPerformed
-         String selectedCourse = (String) course.getSelectedItem();
-    String selectedYear = (String) year.getSelectedItem();
-    String selectedTerm = (String) term.getSelectedItem();
-    String selectedSection = (String) section.getSelectedItem();
-    
-    // Prepare the enrollment details
+        
+        String selectedCourse = (String) course.getSelectedItem();
+        String selectedYear = (String) year.getSelectedItem();
+        String selectedTerm = (String) term.getSelectedItem();
+        String selectedSection = (String) section.getSelectedItem();
+        String student = studentname.getText().trim();
+        
+        registerStudent(student, selectedCourse, selectedSection);
+        years.add(selectedYear);
+        terms.add(selectedTerm);
+        
+        String assignedProfessor = findProfessorByCourse(selectedCourse);
+   
     String enrollmentDetails = """
                                Enrollment Details:
                                Student Name: """ + studentname.getText() + "\n" +
                                "Course: " + selectedCourse + "\n" +
                                "Year: " + selectedYear + "\n" +
                                "Term: " + selectedTerm + "\n" +
-                               "Section: " + selectedSection;
-    // Display the enrollment details (you can also save it to a file or database)
+                               "Section: " + selectedSection + "\n"+
+                               "Professor: " + assignedProfessor + "\n"+
+                               "Please go to the Student Ledger to pay your tuition";
+    
     JOptionPane.showMessageDialog(this, enrollmentDetails, "Enrollment Confirmation", JOptionPane.INFORMATION_MESSAGE);
+    
+        Finals_enrollment.course.add(selectedCourse);
+        Finals_enrollment.year.add(selectedYear);
+        Finals_enrollment.term.add(selectedTerm);
+        Finals_enrollment.section.add(selectedSection);
     }//GEN-LAST:event_enrollbuttonActionPerformed
+
+    private void sectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sectionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sectionActionPerformed
+
+    private void courseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_courseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_courseActionPerformed
+
+    private void studentnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_studentnameActionPerformed
 
     /**
      * @param args the command line arguments

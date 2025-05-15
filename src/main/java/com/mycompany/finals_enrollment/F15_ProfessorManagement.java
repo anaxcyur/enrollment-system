@@ -33,12 +33,13 @@ public class F15_ProfessorManagement extends javax.swing.JFrame {
         ArrayList<String> names = Finals_enrollment.name;
         ArrayList<String> usernames = Finals_enrollment.username;
         ArrayList<String> passwords = Finals_enrollment.password;
+        ArrayList<String> courses = Finals_enrollment.teach;
 
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0); 
 
         for (int i = 0; i < names.size(); i++) {
-            model.addRow(new Object[]{names.get(i), usernames.get(i), passwords.get(i)});
+            model.addRow(new Object[]{names.get(i), usernames.get(i), passwords.get(i), courses.get(i)});
         }
     }
 
@@ -74,23 +75,23 @@ public class F15_ProfessorManagement extends javax.swing.JFrame {
         jTable1.setForeground(new java.awt.Color(0, 0, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Name", "Username", "Password"
+                "Name", "Username", "Password", "Teaching course", "Assigned Section"
             }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -204,6 +205,9 @@ public class F15_ProfessorManagement extends javax.swing.JFrame {
     } else {
         JOptionPane.showMessageDialog(null, "Please select a row to update.");
     }
+         name.setEnabled(false);
+        username.setEnabled(false);
+        password.setEnabled(false);
     }//GEN-LAST:event_saveActionPerformed
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed

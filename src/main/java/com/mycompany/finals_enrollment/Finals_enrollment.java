@@ -17,49 +17,77 @@ public class Finals_enrollment {
     public static ArrayList<String> username = new ArrayList<String>();
     public static ArrayList<String> name = new ArrayList<String>();
     public static ArrayList<String> password = new ArrayList<String>();
+    public static ArrayList<String> teach = new ArrayList<String>();
     public static String previousFrame = "";
     
         static {
         username.add("maria");
         password.add("rachel");
         name.add("maria");
+        teach.add("BS Information Technology");
         
         username.add("imissyou");
         password.add("iloveyou");
         name.add("John Smith");
+        teach.add("BS Nursing");
         
         username.add("caratdeul");
         password.add("seventeen");
         name.add("Joshua Hong");
+        teach.add("BS Psychology");
     }
     
-    // new student
+    // Student
     public static ArrayList<String> username1 = new ArrayList<String>();
     public static ArrayList<String> name1 = new ArrayList<String>();
     public static ArrayList<String> password1 = new ArrayList<String>();
+    public static ArrayList<String> year = new ArrayList<String>();
+    public static ArrayList<String> term = new ArrayList<String>();
+    public static ArrayList<String> section = new ArrayList<String>();
+    public static ArrayList<String> course = new ArrayList<String>();
+    public static ArrayList<String> records = new ArrayList<>();
     
     static {
         username1.add("scoops");
         password1.add("leader123");
         name1.add("S.Coups");
+        year.add("1st");
+        term.add("2nd");
+        section.add("401IT");
+        course.add("BS Information Technology");
         
         username1.add("jeonghan");
         password1.add("angelhair");
         name1.add("Jeonghan");
+        year.add("1st");
+        term.add("2nd");
+        section.add("401IT");
+        course.add("BS Information Technology");
         
         username1.add("joshua");
         password1.add("gentleman");
         name1.add("Joshua");
+        year.add("1st");
+        term.add("2nd");
+        section.add("401IT");
+        course.add("BS Information Technology");
         
         username1.add("junhui");
         password1.add("china1");
         name1.add("Jun");
+        year.add("1st");
+        term.add("2nd");
+        section.add("401IT");
+        course.add("BS Information Technology");
         
         username1.add("hoshi");
         password1.add("tiger10");
         name1.add("Hoshi");
+        year.add("1st");
+        term.add("2nd");
+        section.add("401IT");
+        course.add("BS Information Technology");
     }
-    
     
     //ATTEMPTS & TIMER
     public static int adminAttempts = 3;
