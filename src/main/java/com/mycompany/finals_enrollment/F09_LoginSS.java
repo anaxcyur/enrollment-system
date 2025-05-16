@@ -34,7 +34,12 @@ public class F09_LoginSS extends javax.swing.JFrame {
             login_username.addActionListener(sharedLoginListener);
             login_password.addActionListener(sharedLoginListener);
     }
-
+    public void login(String username) {
+       Finals_enrollment.cuser.clear(); // Clear previous entries
+       Finals_enrollment.cuser.add(username); //
+    }
+    
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -95,6 +100,11 @@ public class F09_LoginSS extends javax.swing.JFrame {
         login_username.setForeground(new java.awt.Color(0, 0, 0));
         login_username.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         login_username.setBorder(null);
+        login_username.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                login_usernameActionPerformed(evt);
+            }
+        });
         jPanel1.add(login_username);
         login_username.setBounds(410, 240, 160, 30);
 
@@ -177,8 +187,10 @@ switch (Finals_enrollment.previousFrame) {
             }
 
             boolean found = false;
-
+ 
             for (int i = 0; i < a; i++) {
+                
+                
                 if (uname.equals(Finals_enrollment.username1.get(i))) {
                     found = true;
                     if (!pass.equals(Finals_enrollment.password1.get(i))) {
@@ -189,6 +201,7 @@ switch (Finals_enrollment.previousFrame) {
                         JOptionPane.showMessageDialog(null, "LOGIN SUCCESSFUL!");
                         new F10_StudentPortal().setVisible(true);
                         this.setVisible(false);
+                        Finals_enrollment.cuser.add(uname);
                     }
                     return;
                 }
@@ -336,6 +349,10 @@ switch (Finals_enrollment.previousFrame) {
             login_password.setEchoChar('*'); 
     }
     }//GEN-LAST:event_login_unhideActionPerformed
+
+    private void login_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_usernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_login_usernameActionPerformed
 
     /**
      * @param args the command line arguments

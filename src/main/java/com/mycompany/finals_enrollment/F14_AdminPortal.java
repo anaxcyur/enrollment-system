@@ -58,7 +58,7 @@ public class F14_AdminPortal extends javax.swing.JFrame {
             }
         });
         jPanel1.add(management1);
-        management1.setBounds(260, 410, 190, 130);
+        management1.setBounds(90, 140, 190, 130);
 
         management.setBorderPainted(false);
         management.setContentAreaFilled(false);
@@ -68,9 +68,9 @@ public class F14_AdminPortal extends javax.swing.JFrame {
             }
         });
         jPanel1.add(management);
-        management.setBounds(130, 263, 190, 130);
+        management.setBounds(90, 330, 190, 130);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admin po.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/23.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 900, 550);
 
@@ -93,7 +93,7 @@ public class F14_AdminPortal extends javax.swing.JFrame {
     }//GEN-LAST:event_managementActionPerformed
 
     private void management1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_management1ActionPerformed
-       new F15_ProfessorManagement().setVisible(true);
+       new F15_RegistrarManagement().setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_management1ActionPerformed
 

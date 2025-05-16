@@ -124,7 +124,7 @@ public class F08_Back extends javax.swing.JFrame {
                 new F15_StudentManagement().setVisible(true);
                 this.setVisible(false);
         }else if (Finals_enrollment.previousFrame.equals("BackManagementProf")) {
-                new F15_ProfessorManagement().setVisible(true);
+                new F15_RegistrarManagement().setVisible(true);
                 this.setVisible(false);
         }
     }//GEN-LAST:event_backnoActionPerformed

@@ -4,19 +4,26 @@
  */
 package com.mycompany.finals_enrollment;
 
+import java.util.ArrayList;
+
+
+
 /**
  *
  * @author aname
  */
 public class F00_StartUp extends javax.swing.JFrame {
-
-    /**
-     * Creates new form F0_StartUp
-     */
+   
+    
+ 
+ 
+   
     public F00_StartUp() {
         initComponents();
          setLocationRelativeTo(null);
-    }
+        
+}
+
 
     /**
      * This method is called from within the constructor to initialize the form.

@@ -28,8 +28,6 @@ public class F07_ProfRegister extends javax.swing.JFrame {
         prof_username.setBackground(new Color(0, 0, 0, 0));
         prof_pass.setBackground(new Color(0, 0, 0, 0));
         prof_conpass.setBackground(new Color(0, 0, 0, 0));
-        course.setBackground(new Color(0, 0, 0, 0));
-        
         
         
         
@@ -99,7 +97,6 @@ public class F07_ProfRegister extends javax.swing.JFrame {
         prof_enter = new javax.swing.JButton();
         prof_back = new javax.swing.JButton();
         prof_clear = new javax.swing.JButton();
-        course = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -184,12 +181,7 @@ public class F07_ProfRegister extends javax.swing.JFrame {
         jPanel1.add(prof_clear);
         prof_clear.setBounds(370, 420, 70, 30);
 
-        course.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BS Information Technology", "BS Nursing", "BS Psychology" }));
-        course.setBorder(null);
-        jPanel1.add(course);
-        course.setBounds(430, 380, 140, 30);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/profregs.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/6.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 900, 550);
 
@@ -207,7 +199,6 @@ public class F07_ProfRegister extends javax.swing.JFrame {
         String username = prof_username.getText();
         String password = prof_pass.getText();
         String confirmpass = prof_conpass.getText();
-        String Course = (String) course.getSelectedItem();
         
         if (name.length() < 3) {
             JOptionPane.showMessageDialog(null, "Name must be at least 3 letters long.");
@@ -244,7 +235,6 @@ public class F07_ProfRegister extends javax.swing.JFrame {
         Finals_enrollment.username.add(username);
         Finals_enrollment.password.add(password);
         Finals_enrollment.name.add(name);
-        Finals_enrollment.teach.add(Course);
         JOptionPane.showMessageDialog(null, "New Account Registered!");
        
 
@@ -327,7 +317,6 @@ public class F07_ProfRegister extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> course;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton prof_back;

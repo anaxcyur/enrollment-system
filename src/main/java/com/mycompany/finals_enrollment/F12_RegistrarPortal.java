@@ -9,12 +9,12 @@ package com.mycompany.finals_enrollment;
  *
  * @author aname
  */
-public class F12_ProfessorPortal extends javax.swing.JFrame {
+public class F12_RegistrarPortal extends javax.swing.JFrame {
 
     /**
      * Creates new form F12_ProfessorPortal
      */
-    public F12_ProfessorPortal() {
+    public F12_RegistrarPortal() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -49,7 +49,7 @@ public class F12_ProfessorPortal extends javax.swing.JFrame {
         jPanel1.add(prof_exit);
         prof_exit.setBounds(770, 490, 80, 40);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prof portal.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/22.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 900, 550);
 
@@ -82,20 +82,21 @@ public class F12_ProfessorPortal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(F12_ProfessorPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(F12_RegistrarPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(F12_ProfessorPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(F12_RegistrarPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(F12_ProfessorPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(F12_RegistrarPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(F12_ProfessorPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(F12_RegistrarPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new F12_ProfessorPortal().setVisible(true);
+                new F12_RegistrarPortal().setVisible(true);
             }
         });
     }

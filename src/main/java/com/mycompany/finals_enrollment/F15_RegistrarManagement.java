@@ -13,12 +13,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author aname
  */
-public class F15_ProfessorManagement extends javax.swing.JFrame {
+public class F15_RegistrarManagement extends javax.swing.JFrame {
 
     /**
      * Creates new form F15_ProfessorManagement
      */
-    public F15_ProfessorManagement() {
+    public F15_RegistrarManagement() {
         initComponents();
         setLocationRelativeTo(null);
         loadStudentsToTable(); // Call your method after init
@@ -33,13 +33,12 @@ public class F15_ProfessorManagement extends javax.swing.JFrame {
         ArrayList<String> names = Finals_enrollment.name;
         ArrayList<String> usernames = Finals_enrollment.username;
         ArrayList<String> passwords = Finals_enrollment.password;
-        ArrayList<String> courses = Finals_enrollment.teach;
 
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0); 
 
         for (int i = 0; i < names.size(); i++) {
-            model.addRow(new Object[]{names.get(i), usernames.get(i), passwords.get(i), courses.get(i)});
+            model.addRow(new Object[]{names.get(i), usernames.get(i), passwords.get(i)});
         }
     }
 
@@ -75,23 +74,23 @@ public class F15_ProfessorManagement extends javax.swing.JFrame {
         jTable1.setForeground(new java.awt.Color(0, 0, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Name", "Username", "Password", "Teaching course", "Assigned Section"
+                "Name", "Username", "Password"
             }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -239,20 +238,21 @@ public class F15_ProfessorManagement extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(F15_ProfessorManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(F15_RegistrarManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(F15_ProfessorManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(F15_RegistrarManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(F15_ProfessorManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(F15_RegistrarManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(F15_ProfessorManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(F15_RegistrarManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new F15_ProfessorManagement().setVisible(true);
+                new F15_RegistrarManagement().setVisible(true);
             }
         });
     }

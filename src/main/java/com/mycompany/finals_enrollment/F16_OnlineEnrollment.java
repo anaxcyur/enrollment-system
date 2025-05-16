@@ -14,16 +14,7 @@ import javax.swing.JTextArea;
  * @author aname
  */
 public class F16_OnlineEnrollment extends javax.swing.JFrame {
-    private ArrayList<String> names = Finals_enrollment.name1;       
-    private ArrayList<String> courses = Finals_enrollment.course;   
-    private ArrayList<String> professors = Finals_enrollment.name;   
-    private ArrayList<String> teachCourses = Finals_enrollment.teach; 
-    private ArrayList<String> sections = Finals_enrollment.section;  
-    private ArrayList<String> years = Finals_enrollment.year;
-    private ArrayList<String> terms = Finals_enrollment.term;
-    public static ArrayList<String> assignedProfessors = new ArrayList<>();
-    
-    
+   
     public F16_OnlineEnrollment() {
         initComponents();
         setLocationRelativeTo(null);
@@ -33,37 +24,34 @@ public class F16_OnlineEnrollment extends javax.swing.JFrame {
         section.setBackground(new Color(0, 0, 0, 0));
         course.setBackground(new Color(0, 0, 0, 0));
         
-        String name = Finals_enrollment.name1.get(Finals_enrollment.name1.size() - 1);
-        studentname.setText(name);
+       ArrayList<String> names = Finals_enrollment.name1; // List of names
+       ArrayList<String> usernames = Finals_enrollment.username1; // List of usernames
+       ArrayList<String> passwords = Finals_enrollment.password1; // List of passwords
+    
         
         year.addActionListener(e -> updateSections());
         course.addActionListener(e -> updateSections());
         term.addActionListener(e -> updateSections());
+       
+        // Assuming you have a String variable to hold the current username
+        System.out.println("Current user in cuser: " + Finals_enrollment.cuser);
+      
         
-         if (!names.isEmpty()) {
-            studentname.setText(names.get(names.size() - 1));
-        } else {
-            studentname.setText("");
-        }
-        
-        
-    }
-    private String findProfessorByCourse(String course) {
-        for (int i = 0; i < teachCourses.size(); i++) {
-            if (teachCourses.get(i).equalsIgnoreCase(course)) {
-                return professors.get(i);
+            String currentUser = Finals_enrollment.cuser.get(0); 
+            int index = Finals_enrollment.username1.indexOf(currentUser);
+            if (index != -1) {
+                studentname.setText(Finals_enrollment.name1.get(index)); 
             }
-        }
-        return "No Professor Assigned";
+            Finals_enrollment.cuser.clear();
     }
-     public void registerStudent(String studentName, String course, String section) {
+     /*public void registerStudent(String studentName, String course, String section) {
         names.add(studentName);
         courses.add(course);
         sections.add(section);
 
         String professor = findProfessorByCourse(course);
         assignedProfessors.add(professor);
-    }
+    }*/
     
     private void updateSections() {
     section.removeAllItems();
@@ -324,6 +312,7 @@ public class F16_OnlineEnrollment extends javax.swing.JFrame {
         jPanel1.add(year);
         year.setBounds(150, 250, 340, 40);
 
+        studentname.setEditable(false);
         studentname.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         studentname.setBorder(null);
         studentname.addActionListener(new java.awt.event.ActionListener() {
@@ -401,20 +390,20 @@ public class F16_OnlineEnrollment extends javax.swing.JFrame {
         String selectedSection = (String) section.getSelectedItem();
         String student = studentname.getText().trim();
         
-        registerStudent(student, selectedCourse, selectedSection);
+        /*registerStudent(student, selectedCourse, selectedSection);
         years.add(selectedYear);
         terms.add(selectedTerm);
         
         String assignedProfessor = findProfessorByCourse(selectedCourse);
-   
+   */
     String enrollmentDetails = """
                                Enrollment Details:
-                               Student Name: """ + studentname.getText() + "\n" +
+                               Student Name: """ + student + "\n" +
                                "Course: " + selectedCourse + "\n" +
                                "Year: " + selectedYear + "\n" +
                                "Term: " + selectedTerm + "\n" +
                                "Section: " + selectedSection + "\n"+
-                               "Professor: " + assignedProfessor + "\n"+
+                               //"Professor: " + assignedProfessor + "\n"+
                                "Please go to the Student Ledger to pay your tuition";
     
     JOptionPane.showMessageDialog(this, enrollmentDetails, "Enrollment Confirmation", JOptionPane.INFORMATION_MESSAGE);

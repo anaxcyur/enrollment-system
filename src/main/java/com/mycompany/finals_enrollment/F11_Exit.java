@@ -107,7 +107,7 @@ public class F11_Exit extends javax.swing.JFrame {
                 new F10_StudentPortal().setVisible(true);
                 this.setVisible(false);
         }else if (Finals_enrollment.previousFrame.equals("ProfessorExit")) {
-                new F12_ProfessorPortal().setVisible(true);
+                new F12_RegistrarPortal().setVisible(true);
                 this.setVisible(false);
         }else if (Finals_enrollment.previousFrame.equals("AdminPortalExit")) {
                 new F14_AdminPortal().setVisible(true);
@@ -122,7 +122,7 @@ public class F11_Exit extends javax.swing.JFrame {
                 new F16_OnlineEnrollment().setVisible(true);
                 this.setVisible(false);
         }else if (Finals_enrollment.previousFrame.equals("ExitManagementProf")) {
-                new F15_ProfessorManagement().setVisible(true);
+                new F15_RegistrarManagement().setVisible(true);
                 this.setVisible(false);
         }
     }//GEN-LAST:event_exit_noActionPerformed

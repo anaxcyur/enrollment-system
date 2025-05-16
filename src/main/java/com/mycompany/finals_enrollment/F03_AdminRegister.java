@@ -75,7 +75,7 @@ public class F03_AdminRegister extends javax.swing.JFrame {
         RegisterAccount.add(ar_back);
         ar_back.setBounds(580, 490, 70, 40);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/regi.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/5.png"))); // NOI18N
         RegisterAccount.add(jLabel1);
         jLabel1.setBounds(0, 0, 900, 550);
 

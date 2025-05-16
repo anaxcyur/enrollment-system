@@ -58,9 +58,9 @@ public class F10_StudentPortal extends javax.swing.JFrame {
             }
         });
         jPanel1.add(enrollment);
-        enrollment.setBounds(240, 200, 180, 130);
+        enrollment.setBounds(110, 200, 180, 130);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student portal.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/21.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 900, 550);
 
